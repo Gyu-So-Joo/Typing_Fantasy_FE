@@ -3,22 +3,20 @@ const AUTH_API = "http://localhost:8080/api";
 
 // 회원가입
 function register() {
-  const nickname = document.getElementById("regNickname").value.trim();
   const id = document.getElementById("regId").value.trim();
   const pw = document.getElementById("regPw").value.trim();
 
-  if (!nickname || !id || !pw) {
+  if (!id || !pw) {
     showMsg("registerMsg", "모든 항목을 입력해주세요", false);
     return;
   }
 
   //   DB VO랑 이름 맞추기
-  fetch(`${AUTH_API}/register`, {
+  fetch(`${AUTH_API}/user/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      nickname: nickname,
-      username: id,
+      name: id,
       password: pw,
     }),
   })
@@ -51,22 +49,21 @@ function login() {
   }
 
   //   DB VO랑 이름 맞추기
-  fetch(`${AUTH_API}/login`, {
+  fetch(`${AUTH_API}/user/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      username: id,
+      name: id,
       password: pw,
     }),
   })
     .then((res) => res.json())
     .then((data) => {
       if (data.result === "ok") {
-        localStorage.setItem("loginUser", data.nickname);
-        localStorage.setItem("loginRole", data.role);
-        localStorage.setItem("loginMemberId", data.memberId);
+        localStorage.setItem("loginUser", data.name);
+        localStorage.setItem("loginMemberId", data.id);
 
-        showMsg("loginMsg", `${data.nickname}님 환영합니다!`, true);
+        showMsg("loginMsg", `${data.name}님 환영합니다!`, true);
 
         setTimeout(() => {
           location.href = "index.html";
