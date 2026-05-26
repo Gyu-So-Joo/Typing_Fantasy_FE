@@ -1,26 +1,59 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>도감</title>
-    <link rel="stylesheet" href="css/encyclopedia.css" />
+    <link rel="stylesheet" href="encyclopedia.css" />
 </head>
+
 <body>
     <!-- 헤더 영역 -->
     <header>
         <h1><a href="index.html" class="logo-link">TypingFantasy</a></h1>
-        <!-- 네비게이션 영 -->
+        <!-- 네비게이션 영역 -->
         <nav id="navArea">
             <a href="rank.html">랭킹</a>
             <a href="user.html">유저</a>
-            <a href="login.html" id="authLink">로그아웃</a>
+            <a href="login.html">로그아웃</a>
         </nav>
     </header>
-    <!--도감 목록-->
-    <div class="wiki-grid" id="wikiGrid"></div>
-    <!-- 도감 모달 -->
-    <div class="modal-bg" id="wikiModal">
-        <h2>몬스터 도감</h2>
+
+    <div class="container">
+        <div class="container-head">
+        <!-- 왼쪽 로고 -->
+        <div class="head-left">
+            <img
+                src="/resources/logo.png"
+                alt="로고"
+                class="game-logo"
+            >
+        </div>
+        <!-- 가운데 제목 -->
+        <div class="head-center">
+            <h2>도감</h2>
+        </div>
+        <!-- 오른쪽 버튼 -->
+        <div class="head-right">
+
+            <button class="bookmark-btn">
+                📖
+            </button>
+
+        </div>
+
     </div>
+        <!--도감 목록(그리드)-->
+        <div class="wiki-grid" id="wikiGrid"></div>
+        
+
+        <!-- 페이지 네이션 -->
+        <div class="pagination" id="pagination"></div>
+    </div>
+    <!-- 도감 모달 -->
+    <div class="modal-bg hidden" id="wikiModal"></div>
+
+    <!-- JS -->
+    <script type="module" src="encyclopedia.js"></script>
 </body>
 </html>
