@@ -1,4 +1,4 @@
-import monsters from "/monsters.js";
+import monsters from "/js/monsters.js";
 
 const pageSize = 6;
 
