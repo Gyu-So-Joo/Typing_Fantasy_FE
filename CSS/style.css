@@ -28,10 +28,10 @@ header {
   width: 210px;
 }
 
-/* 로그인,회원가입,랭킹 */
+/* 랭킹, 로그인, 유저 */
+.ranking-logo,
 .login-logo,
-.register-logo,
-.ranking-logo {
+.user-logo {
   width: 100px;
 }
 
