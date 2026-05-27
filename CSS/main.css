@@ -1,17 +1,20 @@
 body {
   margin: 0;
-  overflow-y: hidden; /* 스크롤 제거 */
+  overflow-y: hidden;
 }
 
 /* 메인 페이지 */
 .main-page {
-  min-height: calc(100vh - 80px);
+  height: calc(100vh - 190px);
+  /* 헤더 140px + 푸터 50px 제외 */
+
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px;
+
   min-width: 1300px;
   max-width: 1200px;
+
   margin: 0 auto;
 }
 
@@ -19,64 +22,36 @@ body {
 .main {
   width: 100%;
   max-width: 700px;
+
   text-align: center;
+
+  transform: translateY(-20px);
 }
 
-/* 제목 */
-.main-text h2 {
-  font-size: 52px;
-  color: #2f241f;
-  margin-bottom: 14px;
-  font-weight: 900;
-}
-
-/* 설명 */
-.main-text p {
+/* 게임 문구 */
+.text {
   font-size: 30px;
   color: #ffffff;
   font-weight: bold;
-  margin-bottom: 30px;
+
+  margin-bottom: 25px;
 }
 
+/* 메인 로고 */
 .main-logo {
   width: 400px;
 }
 
 /* 시작 버튼 */
 .start-btn {
-  width: 320px;
-  height: 80px;
-
-  border: none;
-  border-radius: 18px;
-
-  background: #068be3;
-  /* linear-gradient(to bottom, #b6c7aa, #b6c7aa); */
-
-  color: white;
-  font-size: 30px;
-  font-weight: bold;
-
-  cursor: pointer;
-
-  box-shadow: 0 6px 0 #05609c;
-  transition: all 0.15s ease;
+  width: 250px;
 }
 
 /* 버튼 눌리는 느낌 */
 .start-btn:hover {
-  transform: translateY(2px);
-  box-shadow: 0 4px 0 #05609c;
+  transform: translateY(-2px);
 }
 
 .start-btn:active {
-  transform: translateY(5px);
-  box-shadow: 0 1px 0 #05609c;
-}
-
-/* 로그인,회원가입,랭킹 */
-.login-logo,
-.register-logo,
-.ranking-logo {
-  width: 100px;
+  transform: translateY(-5px);
 }

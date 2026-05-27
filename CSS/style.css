@@ -5,27 +5,39 @@
 }
 
 body {
+  min-height: 100vh;
   background-image: url("../img/background_2.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  /* min-width: 1200px; */
-  min-height: 100vh;
+  overflow: hidden;
 }
 
 header {
-  height: 120px;
+  height: 140px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  max-width: 1200px;
-  margin: 20px auto 0;
-
-  padding: 20px 20px;
 }
 
 .logo {
   width: 210px;
+}
+
+/* 로그인,회원가입,랭킹 */
+.login-logo,
+.register-logo,
+.ranking-logo {
+  width: 100px;
+}
+
+footer {
+  height: 50px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
 }
