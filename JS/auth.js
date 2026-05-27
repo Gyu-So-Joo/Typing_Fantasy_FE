@@ -22,7 +22,7 @@ function register() {
   })
     .then((res) => res.json())
     .then((data) => {
-      if (data.result === "ok") {
+      if (data.status === 201) {
         showMsg("registerMsg", "가입 완료! 로그인 페이지로 이동합니다.", true);
         setTimeout(() => {
           location.href = "login.html";
@@ -59,11 +59,8 @@ function login() {
   })
     .then((res) => res.json())
     .then((data) => {
-      if (data.result === "ok") {
-        localStorage.setItem("loginUser", data.name);
-        localStorage.setItem("loginMemberId", data.id);
-
-        showMsg("loginMsg", `${data.name}님 환영합니다!`, true);
+      if (data.status === 200) {
+        localStorage.setItem("loginUser", id);
 
         setTimeout(() => {
           location.href = "index.html";
