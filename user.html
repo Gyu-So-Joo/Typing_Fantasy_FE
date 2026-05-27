@@ -39,14 +39,33 @@
                     <button class="bookmark-btn">📖</button>
                 </div>
             </div>
-            <!-- 유저 정보 -->
-            <div class="user-info" id="userInfo"></div>
-            <!-- 유저 언어 -->
-            <div class="user-lan" id="userLan"></div>
-            <!-- 유저 통계 -->
-            <div class="user-stat" id="userStat"></div>
-        </div>
 
+            <div class="container-info">
+                <!-- 유저 정보 -->
+                <div class="user-info" id="userInfo">
+                    <h2>유저 정보</h2>
+                    <img
+                        src="/resources/mocomo.png"
+                        alt="로고"
+                        class="user-img"
+                    />
+                </div>
+                <!-- 유저 언어 -->
+                <div class="user-lan" id="userLan">
+                    <h2>사용언어</h2>
+                    <form action="#">
+                        <select name="language" id="langSelect">
+                            <option>Java</option>
+                            <option>JavaScript</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+            <!-- 유저 통계 -->
+            <div class="user-stat" id="userStat">
+                <h2>내 게임 스타일 통계</h2>
+            </div>
+        </div>
         <!-- JS -->
         <script type="module" src="/js/user.js"></script>
     </body>

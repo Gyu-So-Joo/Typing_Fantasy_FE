@@ -89,3 +89,38 @@ body {
     align-items: center;
     margin-bottom: 40px;
 }
+
+.user-info {
+    width: 400px;
+    height: auto;
+    border: 2px solid #333333;
+}
+
+.user-lan {
+    background: var(--basic-color);
+    width: 400px;
+    height: auto;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    margin-left: 20px;
+}
+.user-stat {
+    background: var(--basic-color);
+    width: 900px;
+    height: auto;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.container-info {
+    display: flex;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+.user-img {
+    width: 100px;
+    height: auto;
+}
