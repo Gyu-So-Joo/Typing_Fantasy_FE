@@ -67,7 +67,7 @@ function login() {
                 localStorage.setItem("loginUser", id);
 
                 setTimeout(() => {
-                    location.href = "index.html";
+                    location.href = "main.html";
                 }, 1500);
             } else {
                 showMsg(
