@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  overflow: hidden; /* 스크롤 제거 */
+}
+
+/* 메인 페이지 */
+.main-page {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* 메인 박스 */
+.main {
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+}
+
+/* 제목 */
+.main-text h2 {
+  font-size: 52px;
+  color: #2f241f;
+  margin-bottom: 14px;
+  font-weight: 900;
+}
+
+/* 설명 */
+.main-text p {
+  font-size: 22px;
+  color: #4f4037;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.main-logo {
+  width: 600px;
+}
+
+/* 시작 버튼 */
+.start-btn {
+  width: 320px;
+  height: 80px;
+
+  border: none;
+  border-radius: 18px;
+
+  background: linear-gradient(to bottom, #6dbb2d, #4f921f);
+
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  box-shadow: 0 6px 0 #3b6f17;
+  transition: all 0.15s ease;
+}
+
+/* 버튼 눌리는 느낌 */
+.start-btn:hover {
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 #3b6f17;
+}
+
+.start-btn:active {
+  transform: translateY(5px);
+  box-shadow: 0 1px 0 #3b6f17;
+}
