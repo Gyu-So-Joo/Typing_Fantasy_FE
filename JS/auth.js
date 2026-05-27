@@ -11,7 +11,7 @@ function register() {
     return;
   }
 
-  //   DB VO랑 이름 맞추기
+  //   DB 연동
   fetch(`${AUTH_API}/user/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -48,7 +48,7 @@ function login() {
     return;
   }
 
-  //   DB VO랑 이름 맞추기
+  //   DB 연동
   fetch(`${AUTH_API}/user/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
