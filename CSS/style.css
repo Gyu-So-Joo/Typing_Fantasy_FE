@@ -29,9 +29,9 @@ header {
 }
 
 /* 로그인,회원가입,랭킹 */
+.ranking-logo,
 .login-logo,
-.register-logo,
-.ranking-logo {
+.user-logo {
   width: 100px;
 }
 
