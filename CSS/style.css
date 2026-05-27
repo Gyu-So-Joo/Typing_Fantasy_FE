@@ -8,6 +8,9 @@ body {
   background-image: url("../img/background_2.png");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+
+  /* min-width: 1200px; */
   min-height: 100vh;
 }
 
@@ -16,11 +19,13 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+
+  max-width: 1200px;
+  margin: 20px auto 0;
+
+  padding: 20px 20px;
 }
 
 .logo {
-  width: 250px;
+  width: 210px;
 }
