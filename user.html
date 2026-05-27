@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>유저 정보</title>
+        <link rel="stylesheet" href="/css/user.css" />
+    </head>
+    <body>
+        <!-- 헤더 영역 -->
+        <header>
+            <h1><a href="index.html" class="logo-link">TypingFantasy</a></h1>
+            <!-- 네비게이션 영역 -->
+            <nav id="navArea">
+                <a href="rank.html">랭킹</a>
+                <a href="user.html">유저</a>
+                <a href="login.html">로그아웃</a>
+            </nav>
+        </header>
+
+        <!-- 컨테이너 영역 -->
+        <div class="container">
+            <div class="container-head">
+                <!-- 왼쪽 -->
+                <div class="head-left">
+                    <img
+                        src="/resources/logo.png"
+                        alt="로고"
+                        class="game-logo"
+                    />
+                </div>
+
+                <!-- 가운데 -->
+                <div class="head-center">
+                    <h2>유저 정보</h2>
+                </div>
+
+                <!-- 오른쪽 -->
+                <div class="head-right">
+                    <button class="bookmark-btn">📖</button>
+                </div>
+            </div>
+            <!-- 유저 정보 -->
+            <div class="user-info" id="userInfo"></div>
+            <!-- 유저 언어 -->
+            <div class="user-lan" id="userLan"></div>
+            <!-- 유저 통계 -->
+            <div class="user-stat" id="userStat"></div>
+        </div>
+
+        <!-- JS -->
+        <script type="module" src="/js/user.js"></script>
+    </body>
+</html>

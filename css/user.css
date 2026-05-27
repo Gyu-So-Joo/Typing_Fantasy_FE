@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 루트 색 지정 */
+:root {
+    --point-color: #b6c7aa;
+    --basic-color: #f6e6cb;
+}
+
+header {
+    background: var(--point-color);
+    color: rgb(255, 255, 255);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration-line: none;
+}
+header h1 a {
+    color: white;
+    text-decoration: none;
+    font-size: 26px;
+    letter-spacing: 2px;
+}
+
+/* 헤더 - nav 영역 */
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 15px;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: url("/resources/background_2.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* 컨테이너 영역 */
+.container {
+    width: 1200px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* 컨테이너 헤더 영역 */
+.game-logo {
+    width: 200px;
+    height: auto;
+}
+
+.container-head h2 {
+    font-size: 32px;
+    color: #333;
+    letter-spacing: 4px;
+}
+
+.bookmark-btn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 12px;
+    background: var(--point-color);
+    background: var(--point-color);
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.bookmark-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.container-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
