@@ -72,6 +72,17 @@
   background: #4a2c2a;
 }
 
+.login-divider {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.login-divider p {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
 .register-divider {
   margin-top: 24px;
   text-align: center;
