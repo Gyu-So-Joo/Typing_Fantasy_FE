@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>유저 정보</title>
+        <link rel="stylesheet" href="/css/user.css" />
+    </head>
+    <body>
+        <!-- 헤더 영역 -->
+        <header>
+            <h1><a href="index.html" class="logo-link">TypingFantasy</a></h1>
+            <!-- 네비게이션 영역 -->
+            <nav id="navArea">
+                <a href="rank.html">랭킹</a>
+                <a href="user.html">유저</a>
+                <a href="login.html">로그아웃</a>
+            </nav>
+        </header>
+
+        <!-- 컨테이너 영역 -->
+        <div class="container">
+            <div class="container-head">
+                <!-- 왼쪽 -->
+                <div class="head-left">
+                    <img
+                        src="/resources/logo.png"
+                        alt="로고"
+                        class="game-logo"
+                    />
+                </div>
+
+                <!-- 가운데 -->
+                <div class="head-center">
+                    <h2>유저 정보</h2>
+                </div>
+
+                <!-- 오른쪽 -->
+                <div class="head-right">
+                    <button class="bookmark-btn">📖</button>
+                </div>
+            </div>
+
+            <div class="container-info">
+                <!-- 유저 정보 -->
+                <div class="user-info" id="userInfo">
+                    <h2>유저 정보</h2>
+                    <img
+                        src="/resources/mocomo.png"
+                        alt="로고"
+                        class="user-img"
+                    />
+                </div>
+                <!-- 유저 언어 -->
+                <div class="user-lan" id="userLan">
+                    <h2>사용언어</h2>
+                    <form action="#">
+                        <select name="language" id="langSelect">
+                            <option>Java</option>
+                            <option>JavaScript</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+            <!-- 유저 통계 -->
+            <div class="user-stat" id="userStat">
+                <h2>내 게임 스타일 통계</h2>
+            </div>
+        </div>
+        <!-- JS -->
+        <script type="module" src="/js/user.js"></script>
+    </body>
+</html>
