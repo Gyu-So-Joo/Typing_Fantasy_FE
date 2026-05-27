@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/rank.css" />
+
+    <title>Typing Fantasy</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <a href="index.html">
+          <img class="logo" src="img/logo.png" />
+        </a>
+      </h1>
+
+      <nav>
+        <a href="rank.html">rank</a>
+        <a href="login.html">login</a>
+        <a href="register.html">register</a>
+      </nav>
+    </header>
+
+    <div class="rank-container">
+      <div class="rank-box">
+        <!-- 제목 -->
+        <div class="rank-header">
+          <h2 class="rank-title">Rank</h2>
+        </div>
+
+        <!-- 랭킹 표 -->
+        <div class="rank-table">
+          <div class="rank-table-head">
+            <span>RANK</span>
+            <span>NAME</span>
+            <span>SCORE</span>
+          </div>
+
+          <!-- 랭킹 목록 -->
+          <div id="rankList" class="rank-list">
+            <div id="rankSentinel" class="rank-sentinel">loading...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="JS/rank.js"></script>
+  </body>
+</html>
