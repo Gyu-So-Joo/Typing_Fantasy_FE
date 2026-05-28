@@ -1,102 +1,188 @@
+/* 전체 초기화 */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* 루트 색 지정 */
 :root {
-  --point-color: #b6c7aa;
-  --basic-color: #f6e6cb;
+    --point-color: #b6c7aa;
+    --basic-color: #f6e6cb;
 }
 
+/* 바디 영역 */
 body {
-  margin: 0;
-  min-height: 100vh;
-  background-image: url("/img/background_2.png");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+    margin: 0;
+    min-height: 100vh;
+    background-image: url("/img/background_2.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 /* 컨테이너 영역 */
 .container {
-  width: 1200px;
-  margin: 50px auto;
-  background: white;
-  border-radius: 20px;
-  padding: 40px;
-  box-sizing: border-box;
+    width: 1200px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
 }
 
 /* 컨테이너 헤더 영역 */
 .game-logo {
-  width: 200px;
-  height: auto;
+    width: 200px;
+    height: auto;
 }
-
 .container-head h2 {
-  font-size: 32px;
-  color: #333;
-  letter-spacing: 4px;
+    font-size: 32px;
+    color: #333;
+    letter-spacing: 4px;
 }
-
 .bookmark-btn {
-  width: 50px;
-  height: 50px;
-  border: none;
-  border-radius: 12px;
-  background: var(--point-color);
-  background: var(--point-color);
-  color: white;
-  font-size: 22px;
-  cursor: pointer;
-  transition: 0.2s;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 12px;
+    background: var(--point-color);
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.2s;
 }
-
 .bookmark-btn:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
+    transform: scale(1.05);
+    opacity: 0.9;
 }
-
 .container-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
 }
 
-.user-info {
-  width: 400px;
-  height: auto;
-  border: 2px solid #333333;
-}
-
-.user-lan {
-  background: var(--basic-color);
-  width: 400px;
-  height: auto;
-  border-radius: 20px;
-  padding: 40px;
-  box-sizing: border-box;
-  margin-left: 20px;
-}
-.user-stat {
-  background: var(--basic-color);
-  width: 900px;
-  height: auto;
-  border-radius: 20px;
-  padding: 40px;
-  box-sizing: border-box;
-}
-
+/* 정보 컨테이너 */
 .container-info {
-  display: flex;
-  border-radius: 20px;
-  padding: 40px;
-  box-sizing: border-box;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+/* 카드 공통 */
+.user-info,
+.chart,
+.chart-info {
+    background: var(--basic-color);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+/* 유저 정보 카드 */
+.user-info {
+    width: 400px;
+    align-items: center;
 }
 .user-img {
-  width: 100px;
-  height: auto;
+    width: 140px;
+    margin-bottom: 20px;
+}
+#userId {
+    font-size: 20px;
+    font-weight: 600;
+    color: #444;
+}
+
+#langSelect {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    background: #f3f3f3;
+    font-size: 16px;
+    outline: none;
+}
+/* 통계 역역 */
+.user-stat {
+    width: 100%;
+}
+.user-stat h2 {
+    margin-bottom: 20px;
+}
+/* 차트영역 */
+.chart-area {
+    width: 100%;
+    height: 300px;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow-y: auto;
+}
+
+.chart-info {
+    padding: 32px;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 평균 정확도 */
+
+#accuracyAvg {
+    font-size: 20px;
+    font-weight: 800;
+    color: #2f3430;
+    letter-spacing: -1px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* 아이콘 느낌 */
+#accuracyAvg::before {
+    content: "🎯";
+    font-size: 30px;
+}
+/* 정보 평가 */
+#assessment {
+    padding: 22px;
+    border-radius: 22px;
+    background: linear-gradient(
+        135deg,
+        rgba(182, 199, 170, 0.15),
+        rgba(255, 255, 255, 0.8)
+    );
+    border: 1px solid rgba(182, 199, 170, 0.25);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.8;
+    color: #4b5c4d;
+    position: relative;
+}
+/* 오류 분석 */
+
+#errorComment {
+    padding: 24px;
+    border-radius: 22px;
+    background: rgba(250, 250, 250, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 18px;
+    line-height: 2;
+    color: #555;
+    white-space: pre-line;
+    position: relative;
+    overflow: hidden;
+}
+
+.container-contents {
+    display: flex;
+    gap: 10px;
 }

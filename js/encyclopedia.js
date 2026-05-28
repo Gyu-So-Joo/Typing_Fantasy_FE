@@ -35,13 +35,12 @@ function appendMonsterCards(monsters) {
         const card = document.createElement("div");
 
         card.className = "monster-card";
-
         card.innerHTML = `
 
             <div class="img-area">
 
                 <img
-                    src="${monster.image}"
+                    src="${monster.normalImg}"
                     alt="${monster.name}"
                 >
 
