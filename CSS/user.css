@@ -186,3 +186,30 @@ body {
     display: flex;
     gap: 10px;
 }
+.blur-lock {
+    position: relative;
+    overflow: hidden;
+}
+
+/* 내부 콘텐츠 숨김 */
+.blur-lock > * {
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* 안내 문구 */
+.blur-lock::after {
+    content: "🔒데이터를 보려면 게임을 플레이 해주세요";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #555;
+
+    opacity: 1;
+}

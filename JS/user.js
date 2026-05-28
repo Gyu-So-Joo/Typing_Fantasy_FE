@@ -1,5 +1,16 @@
 const loginId = localStorage.getItem("loginUser");
 const API = `http://localhost:8080/api/user/stats/${loginId}`;
+
+checkLan();
+
+function checkLan() {
+    const lan = localStorage.getItem("selectedLang");
+    if (lan != "JAVA" && lan != "JS") {
+        document.querySelector(".chart").classList.add("blur-lock");
+        document.querySelector(".chart-info").classList.add("blur-lock");
+        document.querySelector(".lan").classList.add("blur-lock");
+    }
+}
 // recordAccuracyAvg
 
 // recordCpmAvg
