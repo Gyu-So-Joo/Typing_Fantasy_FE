@@ -25,5 +25,5 @@ function startGame() {
   }
 
   // 로그인 된 상태
-  location.href = "game.html";
+  location.href = "language.html";
 }
