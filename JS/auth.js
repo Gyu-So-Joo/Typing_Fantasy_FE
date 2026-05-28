@@ -74,6 +74,18 @@ function login() {
         showMsg("loginMsg", "아이디 또는 비밀번호가 틀렸습니다.", false);
       }
     })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.status === 200) {
+        localStorage.setItem("loginUser", id);
+
+        setTimeout(() => {
+          location.href = "main.html";
+        }, 1500);
+      } else {
+        showMsg("loginMsg", "아이디 또는 비밀번호가 틀렸습니다.", false);
+      }
+    })
     .catch(() => showMsg("loginMsg", "서버 오류", false));
 }
 
