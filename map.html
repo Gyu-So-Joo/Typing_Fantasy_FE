@@ -2,9 +2,43 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-
-    <link rel="stylesheet" href="CSS/style.css" />
     <link rel="stylesheet" href="CSS/map.css" />
+    <link rel="stylesheet" href="CSS/game.css" />
   </head>
-  <body></body>
+  <body>
+    <main class="map-page">
+      <section class="map-box">
+        <aside class="map-side">
+          <button class="level-btn active">쉬움</button>
+          <button class="level-btn">보통</button>
+          <button class="level-btn">어려움</button>
+          <button class="level-btn">매우 어려움</button>
+        </aside>
+
+        <section class="map-content">
+          <h2>맵을 선택하세요</h2>
+
+          <div class="map-card">
+            <img src="img/map_easy.png" alt="쉬움" class="map-img" />
+
+            <div class="map-info">
+              <h3>맵 정보</h3>
+              <ul>
+                <li>코드 예시</li>
+                <li>난이도</li>
+                <li>나오는 몬스터</li>
+              </ul>
+
+              <div class="monster-list">
+                <img src="img/monster1.png" alt="몬스터" />
+                <img src="img/monster2.png" alt="몬스터" />
+                <img src="img/monster3.png" alt="몬스터" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script src="map/auth.js"></script>
+  </body>
 </html>
