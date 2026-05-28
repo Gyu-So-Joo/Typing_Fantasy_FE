@@ -42,7 +42,6 @@ function register() {
 function login() {
   const id = document.getElementById("loginId").value.trim();
   const pw = document.getElementById("loginPw").value.trim();
-
   if (!id || !pw) {
     showMsg("loginMsg", "아이디와 비밀번호를 입력해주세요", false);
     return;
@@ -60,10 +59,16 @@ function login() {
     .then((res) => res.json())
     .then((data) => {
       if (data.status === 200) {
+        const loginUser = data.data.name;
+        const monsterIds = data.data.monsterIds;
+        const selectedLang = data.data.selectedLang;
+
         localStorage.setItem("loginUser", id);
+        localStorage.setItem("monsterIds", monsterIds);
+        localStorage.setItem("selectedLang", selectedLang);
 
         setTimeout(() => {
-          location.href = "index.html";
+          location.href = "main.html";
         }, 1500);
       } else {
         showMsg("loginMsg", "아이디 또는 비밀번호가 틀렸습니다.", false);
