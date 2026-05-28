@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>도감</title>
+    <link rel="stylesheet" href="/CSS/encyclopedia.css" />
+    <link rel="stylesheet" href="/CSS/style.css" />
+  </head>
+  <body>
+    <!-- 헤더 영역 -->
+    <header>
+      <h1>
+        <a href="main.html"><img class="logo" src="img/logo.png" /></a>
+      </h1>
+      <nav>
+        <a href="rank.html"
+          ><img class="ranking-logo" src="img/ranking.png"
+        /></a>
+        <a href="login.html"><img class="login-logo" src="img/login.png" /></a>
+        <a href="user.html"><img class="user-logo" src="img/user.png" /></a>
+      </nav>
+    </header>
+
+    <!-- 컨테이너 영역 -->
+    <div class="container">
+      <!-- 컨테이너 헤더 -->
+      <div class="container-head">
+        <div class="head-left">
+          <img src="/img/logo.png" alt="로고" class="game-logo" />
+        </div>
+        <div class="head-center">
+          <h2>도감</h2>
+        </div>
+        <a href="user.html" class="bookmark-btn"></a>
+      </div>
+
+      <!--도감 목록(그리드)-->
+      <div class="wiki-grid" id="wikiGrid"></div>
+
+      <!-- 페이지 네이션 -->
+      <div class="pagination" id="pagination"></div>
+    </div>
+
+    <!-- 도감 모달 -->
+    <div class="modal-bg hidden" id="wikiModal"></div>
+
+    <!-- JS -->
+    <script type="module" src="/JS/encyclopedia.js"></script>
+  </body>
+</html>
