@@ -3,9 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="CSS/style.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="CSS/language.css" />
+    <title>Typing Fantasy</title>
   </head>
   <body>
-    <header></header>
+    <main class="select-page">
+      <p class="select-text"></p>
+      <div class="language-wrap">
+        <img
+          src="img/card.png"
+          class="language"
+          onclick="selectLanguage('java')"
+        />
+        <img
+          src="img/card.png"
+          class="language"
+          onclick="selectLanguage('javascript')"
+        />
+      </div>
+    </main>
+
+    <script src="JS/language.js"></script>
   </body>
 </html>
