@@ -188,7 +188,6 @@ body {
 }
 .blur-lock {
     position: relative;
-    overflow: hidden;
 }
 
 /* 내부 콘텐츠 숨김 */
@@ -200,10 +199,7 @@ body {
 
 /* 안내 문구 */
 .blur-lock::after {
-    content: "🔒데이터가 잠겨있습니다.";
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    content: "";
     width: 100%;
     text-align: center;
     font-size: 24px;
