@@ -1,6 +1,7 @@
 // 맵 선택 JS
 const AUTH_API = "http://localhost:8080/api";
 
+// 맵 레벨 저장
 let selectedLevel = 1;
 
 const mapData = {
@@ -20,9 +21,10 @@ const mapData = {
 
 // level 불러오기
 function loadMap(level) {
+  // 난이도 저장
   selectedLevel = level;
 
-  // 버튼 active 변경
+  // 버튼 전부 선택 해제
   document.querySelectorAll(".level-btn").forEach((btn) => {
     btn.classList.remove("active");
   });
@@ -39,13 +41,13 @@ function loadMap(level) {
 }
 
 // 모험 시작 버튼
-document.querySelector(".start-btn").addEventListener("click", () => {
+function startGame() {
   // 선택한 난이도 저장
   localStorage.setItem("selectedLevel", selectedLevel);
 
   // 게임 페이지 이동
   location.href = "game.html";
-});
+}
 
 // 첫 화면은 쉬움으로 시작
 window.onload = () => {

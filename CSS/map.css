@@ -70,34 +70,3 @@
   height: 220px;
   object-fit: cover;
 }
-
-.map-info {
-  padding: 30px;
-}
-
-.map-info h3 {
-  margin-bottom: 20px;
-  font-size: 34px;
-}
-
-.map-info ul {
-  display: inline-block;
-  text-align: left;
-  margin-bottom: 30px;
-}
-
-.map-info li {
-  margin-bottom: 12px;
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.monster-list {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.monster-list img {
-  width: 70px;
-}
