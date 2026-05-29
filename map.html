@@ -11,34 +11,34 @@
 
   <body>
     <main class="map-page">
-      <section class="map-box">
-        <!-- 난이도 선택 -->
-        <aside class="map-side">
-          <button class="level-btn" onclick="loadMap(1)">쉬움</button>
+      <section class="map-frame">
+        <section class="map-box">
+          <!-- 난이도 선택 -->
+          <aside class="map-side">
+            <button class="level-btn" onclick="loadMap(1)">쉬움</button>
+            <button class="level-btn" onclick="loadMap(2)">보통</button>
+            <button class="level-btn" onclick="loadMap(3)">어려움</button>
+          </aside>
 
-          <button class="level-btn" onclick="loadMap(2)">보통</button>
+          <!-- 맵 선택 -->
+          <section class="map-content">
+            <h2>맵을 선택하세요</h2>
 
-          <button class="level-btn" onclick="loadMap(3)">어려움</button>
-        </aside>
+            <div class="map-card">
+              <img
+                id="mapImg"
+                src="img/map_easy.png"
+                alt="맵 이미지"
+                class="map-img"
+              />
 
-        <!-- 맵 선택 -->
-        <section class="map-content">
-          <h2>맵을 선택하세요</h2>
+              <p id="mapDetail" class="map-detail">
+                초보 모험가를 위한 평화로운 숲입니다.
+              </p>
+            </div>
 
-          <div class="map-card">
-            <img
-              id="mapImg"
-              src="img/map_easy.png"
-              alt="맵 이미지"
-              class="map-img"
-            />
-
-            <p id="mapDetail" class="map-detail">
-              초보 모험가를 위한 평화로운 숲입니다.
-            </p>
-          </div>
-
-          <button class="start-btn" onclick="startGame()">모험 시작</button>
+            <button class="start-btn" onclick="startGame()">모험 시작</button>
+          </section>
         </section>
       </section>
     </main>
