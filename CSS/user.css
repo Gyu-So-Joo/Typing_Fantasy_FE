@@ -200,11 +200,10 @@ body {
 
 /* 안내 문구 */
 .blur-lock::after {
-    content: "🔒데이터를 보려면 게임을 플레이 해주세요";
+    content: "🔒데이터가 잠겨있습니다.";
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     width: 100%;
     text-align: center;
     font-size: 24px;

@@ -144,3 +144,30 @@ body {
     align-items: center;
     margin-bottom: 40px;
 }
+
+.blur-lock {
+    position: relative;
+    overflow: hidden;
+}
+
+/* 내부 콘텐츠 숨김 */
+.blur-lock > * {
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* 안내 문구 */
+.blur-lock::after {
+    content: "🔒데이터가 잠겨있습니다.";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #555;
+
+    opacity: 1;
+}

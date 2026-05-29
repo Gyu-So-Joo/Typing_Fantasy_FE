@@ -1,11 +1,27 @@
 const API = "http://localhost:8080/api/monster/list";
 
+function checkMon() {
+    //로컬 스토리지에서 몬스터 아이디 가져오기
+    const mon = localStorage.getItem("monsterIds");
+    // 문자열 -> 배열 변환
+    const monsterIds = JSON.parse(mon);
+    // 모든 몬스터 카드 가져오기
+    const cards = document.querySelectorAll(".monster-card");
+    cards.forEach((card) => {
+        const monsterId = Number(card.dataset.id);
+        // 배열에 없는 몬스터면 잠금 처리
+        if (!monsterIds.includes(monsterId)) {
+            card.classList.add("blur-lock");
+        }
+    });
+}
+
 const pageSize = 6;
-/* 현재 페이지 */
+// 현재 페이지
 let currentPage = 1;
-/* 전체 몬스터 저장 */
+// 전체 몬스터 저장
 let allMonsters = [];
-/* 최초 실행 */
+//최초 실행
 loadMonsters();
 // 몬스터 조회
 function loadMonsters() {
@@ -57,6 +73,7 @@ function appendMonsterCards(monsters) {
             </div>
 
         `;
+        card.dataset.id = monster.id;
 
         /* 카드 클릭 시 모달 오픈 */
         card.addEventListener("click", () => {
@@ -79,6 +96,7 @@ function renderPage(page) {
     const currentMonsters = allMonsters.slice(start, end);
 
     appendMonsterCards(currentMonsters);
+    checkMon();
 }
 // 페이지네이션 렌더링
 function renderPagination() {
