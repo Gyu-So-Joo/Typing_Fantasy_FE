@@ -1,0 +1,44 @@
+.select-page {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 45px;
+}
+
+/* 게임 문구 */
+.select-text {
+  font-size: 30px;
+  color: #ffffff;
+  font-weight: bold;
+
+  margin-bottom: 25px;
+}
+
+.language-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 150px;
+}
+
+.language {
+  width: 220px;
+
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.language:hover {
+  transform: translateY(-8px) scale(1.03);
+  filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.2));
+}
+
+.language:active {
+  transform: translateY(4px) scale(0.98);
+}

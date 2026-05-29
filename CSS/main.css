@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  overflow-y: hidden;
+}
+
+/* 메인 페이지 */
+.main-page {
+  height: calc(100vh - 190px);
+  /* 헤더 140px + 푸터 50px 제외 */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 1300px;
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+/* 메인 박스 */
+.main {
+  width: 100%;
+  max-width: 700px;
+
+  text-align: center;
+
+  transform: translateY(-20px);
+}
+
+/* 게임 문구 */
+.text {
+  font-size: 30px;
+  color: #ffffff;
+  font-weight: bold;
+
+  margin-bottom: 25px;
+}
+
+/* 메인 로고 */
+.main-logo {
+  width: 400px;
+}
+
+/* 시작 버튼 */
+.start-btn {
+  width: 250px;
+}
+
+/* 버튼 눌리는 느낌 */
+.start-btn:hover {
+  transform: translateY(-2px);
+}
+
+.start-btn:active {
+  transform: translateY(-5px);
+}
