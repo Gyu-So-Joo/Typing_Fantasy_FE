@@ -1,7 +1,7 @@
 const API = "http://localhost:8080/api/monster/list";
 
 function checkMon() {
-    //로컬 스토리지에서 몬스터 아이디 가져오기
+    // 로컬 스토리지에서 몬스터 아이디 가져오기
     const mon = localStorage.getItem("monsterIds");
     // 문자열 -> 배열 변환
     const monsterIds = JSON.parse(mon);
@@ -9,14 +9,20 @@ function checkMon() {
     const cards = document.querySelectorAll(".monster-card");
     cards.forEach((card) => {
         const monsterId = Number(card.dataset.id);
-        // 배열에 없는 몬스터면 잠금 처리
+        // 배열에 없는 몬스터
         if (!monsterIds.includes(monsterId)) {
-            card.classList.add("blur-lock");
+            // 카드 내부 이미지 , 난이도 찾기
+            const img = card.querySelector("img");
+            const difficulty = card.querySelector(".difficulty");
+            // 그림자 이미지로 변경
+            img.src = "/img/shadow.png";
+            const title = card.querySelector("h3");
+            title.textContent = "???";
         }
     });
 }
 
-const pageSize = 6;
+const pageSize = 8;
 // 현재 페이지
 let currentPage = 1;
 // 전체 몬스터 저장
@@ -56,6 +62,7 @@ function appendMonsterCards(monsters) {
             <div class="img-area">
 
                 <img
+                    class="img"
                     src="${monster.normalImg}"
                     alt="${monster.name}"
                 >
@@ -75,10 +82,37 @@ function appendMonsterCards(monsters) {
         `;
         card.dataset.id = monster.id;
 
-        /* 카드 클릭 시 모달 오픈 */
-        card.addEventListener("click", () => {
-            openModal(monster);
-        });
+        // 로컬 스토리지 몬스터 배열
+        const mon = localStorage.getItem("monsterIds");
+
+        // 문자열 -> 배열
+        const monsterIds = mon ? JSON.parse(mon) : [];
+
+        const monsterId = Number(monster.id);
+
+        //해금 몬스터
+        if (monsterIds.includes(monsterId)) {
+            card.addEventListener("click", () => {
+                openModal(monster);
+            });
+        } else {
+            //미해금 몬스터
+            // 카드 내부 이미지
+            const img = card.querySelector("img");
+
+            // 그림자 이미지
+            img.src = "/img/shadow.png";
+
+            // 이름 변경
+            const title = card.querySelector("h3");
+
+            title.textContent = "???";
+
+            // 난이도 숨김
+            const difficulty = card.querySelector(".difficulty");
+
+            difficulty.textContent = "?";
+        }
 
         grid.appendChild(card);
     });
@@ -111,7 +145,7 @@ function renderPagination() {
 
         btn.textContent = i;
 
-        /* 현재 페이지 active */
+        // 현재 페이지 active
         if (i === currentPage) {
             btn.classList.add("active");
         }
@@ -160,12 +194,12 @@ function openModal(monster) {
 
     `;
 
-    /* hidden 제거 */
+    // hidden 제거
     modal.classList.remove("hidden");
 
     const closeBtn = modal.querySelector(".close-btn");
 
-    /* X 버튼 클릭 시 닫기 */
+    //버튼 클릭 시 닫기
     closeBtn.addEventListener("click", () => {
         closeModal();
     });

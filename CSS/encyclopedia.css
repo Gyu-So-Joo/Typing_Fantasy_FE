@@ -32,9 +32,9 @@ body {
 /* 그리드 영역 */
 .wiki-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 24px;
-    padding: 20px 40px 60px;
+    padding: 20px 40px;
     max-width: 1100px;
     margin: 0 auto;
 }
@@ -47,7 +47,6 @@ body {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin: 30px 0;
 }
 .pagination button {
     width: 40px;
@@ -145,29 +144,8 @@ body {
     margin-bottom: 40px;
 }
 
-.blur-lock {
-    position: relative;
-    overflow: hidden;
-}
-
-/* 내부 콘텐츠 숨김 */
-.blur-lock > * {
-    opacity: 0;
-    pointer-events: none;
-    user-select: none;
-}
-
-/* 안내 문구 */
-.blur-lock::after {
-    content: "🔒데이터가 잠겨있습니다.";
-    position: absolute;
-    top: 50%;
-    left: 50%;
+.img {
     width: 100%;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 700;
-    color: #555;
-
-    opacity: 1;
+    height: 150px;
+    object-fit: cover;
 }
