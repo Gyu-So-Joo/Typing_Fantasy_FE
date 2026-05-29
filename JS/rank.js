@@ -1,10 +1,6 @@
 // 백엔드 API 주소
 const API = "http://localhost:8080/api/user";
-
-const loginUser = localStorage.getItem("loginUser");
-
 let allRank = []; // 전체 랭킹
-let filteredRank = [];
 
 // 페이지 로드 시 실행
 window.onload = function () {
@@ -13,19 +9,10 @@ window.onload = function () {
 
 // 총 점수 랭킹 불러오기
 function loadTotalScore() {
-  fetch(`${API}/stats/${loginUser}`)
+  fetch(`${API}/rank/list`)
     .then((res) => res.json()) // JSON 형태로 변환
     .then((data) => {
-      allRank = [
-        {
-          name: loginUser,
-          totalScore: data.data.totalScore,
-        },
-      ];
-
-      filteredRank = allRank;
-
-      // 무한스크롤 초기화
+      allRank = data.data;
       resetInfiniteScroll();
     })
     .catch((err) => console.error("랭킹 불러오기 실패:", err));
@@ -72,12 +59,12 @@ function loadMoreRank() {
   if (isLoading) return; // 중복 실행 방지
   const start = currentPage * PAGE_SIZE;
   const end = start + PAGE_SIZE;
-  const batch = filteredRank.slice(start, end); // 이번에 보여줄 항목들
+  const batch = allRank.slice(start, end); // 이번에 보여줄 항목들
 
   if (batch.length === 0) {
     // 데이터 자체가 없을 경우
     sentinel.textContent =
-      filteredRank.length === 0
+      allRank.length === 0
         ? "랭킹이 없습니다"
         : // 끝까지 다 불러왔을 경우
           "모든 랭킹을 불러왔습니다.";
@@ -90,7 +77,7 @@ function loadMoreRank() {
   isLoading = false;
 
   // 마지막 데이터까지 다 불러왔으면
-  if (end >= filteredRank.length) {
+  if (end >= allRank.length) {
     // 완료 문구 표시
     sentinel.textContent = "모든 랭킹을 불러왔습니다.";
     return;
@@ -99,22 +86,19 @@ function loadMoreRank() {
 
 // 랭킹 화면에 추가
 function appendRank(ranks, start) {
-  // 랭킹 리스트 영역 가져오기
-  const rankList = document.getElementById("rankList");
+  const loginUser = localStorage.getItem("loginUser");
 
-  // 전달받은 랭킹 배열 반복
   ranks.forEach((user, index) => {
     const div = document.createElement("div");
-    div.className = "rank-item";
 
-    // 랭킹 HTML
+    div.className = user.name === loginUser ? "rank-item my-rank" : "rank-item";
+
     div.innerHTML = `
     <span>${start + index + 1}</span>
     <span>${user.name}</span>
     <span>${user.totalScore.toLocaleString()}</span>
     `;
 
-    // 화면에 추가
-    rankList.appendChild(div);
+    rankList.insertBefore(div, sentinel);
   });
 }
