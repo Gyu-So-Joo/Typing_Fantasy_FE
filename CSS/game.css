@@ -1,90 +1,201 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  min-height: 100vh;
+    min-height: 100vh;
 
-  background-image: url("../img/background_1.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    background-image: url("../img/background_1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .game-page {
-  min-height: 100vh;
+    min-height: 100vh;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .game-box {
-  width: 1000px;
+    width: 1000px;
 
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .game-screen {
-  height: 250px;
+    height: 250px;
 
-  background: white;
-  border-radius: 12px;
+    background: white;
+    border-radius: 12px;
 }
 
 .score-bar {
-  height: 60px;
-  padding: 0 80px;
+    height: 60px;
+    padding: 0 80px;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  background: white;
-  border-radius: 12px;
+    background: white;
+    border-radius: 12px;
 
-  font-size: 24px;
-  font-weight: bold;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .typing-box {
-  padding: 30px;
+    padding: 30px;
 
-  background: white;
-  border-radius: 12px;
+    background: white;
+    border-radius: 12px;
 }
 
 .typing__text p {
-  min-height: 60px;
+    min-height: 60px;
 
-  font-size: 28px;
-  font-weight: bold;
+    font-size: 28px;
+    font-weight: bold;
 
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .input__field {
-  width: 100%;
-  height: 55px;
-  padding: 0 15px;
+    width: 100%;
+    height: 55px;
+    padding: 0 15px;
 
-  border: 2px solid #ccc;
-  border-radius: 8px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
 
-  font-size: 22px;
+    font-size: 22px;
 }
 
 .typing-info {
-  margin-top: 20px;
+    margin-top: 20px;
 
-  display: flex;
-  justify-content: center;
-  gap: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
 
-  font-size: 20px;
-  font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.typing__text p {
+    white-space: pre-wrap;
+}
+
+.correct {
+    color: #4caf50;
+}
+
+.incorrect {
+    color: #f44336;
+    background-color: rgba(244, 67, 54, 0.15);
+}
+.correct,
+.incorrect {
+    display: inline;
+}
+
+.hidden {
+    display: none;
+}
+
+.result-modal {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.result-box {
+    width: 700px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 40px;
+}
+
+.result-box h1 {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.result-content {
+    display: flex;
+
+    gap: 30px;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.result-monster-img {
+    width: 250px;
+    height: 250px;
+
+    object-fit: contain;
+}
+
+.result-info {
+    flex: 1;
+}
+
+.result-info h2 {
+    margin-bottom: 20px;
+}
+
+.result-info p {
+    margin-bottom: 10px;
+
+    font-size: 20px;
+}
+
+.result-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+}
+
+.result-buttons button {
+    width: 180px;
+    height: 50px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+.result-modal.hidden {
+    display: none;
 }

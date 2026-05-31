@@ -1,45 +1,103 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="CSS/style.css" />
-    <link rel="stylesheet" href="CSS/game.css" />
-    <title>Typing Fantasy</title>
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="CSS/style.css" />
+        <link rel="stylesheet" href="CSS/game.css" />
+        <title>Typing Fantasy</title>
+    </head>
 
-  <body>
-    <main class="game-page">
-      <section class="game-box">
-        <!-- 1. 게임창 -->
-        <section class="game-screen">
-          <!-- 게임 캐릭터 이미지 -->
-          <img src="img/player.png" class="player" />
-          <img src="img/monster.png" class="monster" />
-        </section>
+    <body>
+        <main class="game-page">
+            <section class="game-box">
+                <!-- 1. 게임창 -->
+                <section class="game-screen">
+                    <!-- 게임 캐릭터 이미지 -->
+                    <img src="img/player.png" class="player" />
+                    <img src="img/monster.png" class="monster" />
+                </section>
 
-        <!-- 2. 기록 영역 -->
-        <section class="score-bar">
-          <div>TIMER : <span class="time">60</span></div>
-          <div>CPM : <span class="cpm">0</span></div>
-          <div>ACC : <span class="accuracy">0</span></div>
-        </section>
+                <!-- 2. 기록 영역 -->
+                <section class="score-bar">
+                    <div>TIMER : <span class="time">60</span></div>
+                    <div>CPM : <span class="cpm">0</span></div>
+                    <div>ACC : <span class="accuracy">0</span></div>
+                </section>
 
-        <!-- 3. 타이핑 영역 -->
-        <section class="typing-box">
-          <div class="typing__text">
-            <p>어서오세요. 타이핑 판타지입니다.</p>
-          </div>
+                <!-- 3. 타이핑 영역 -->
+                <section class="typing-box">
+                    <div class="typing__text">
+                        <p>어서오세요. 타이핑 판타지입니다.</p>
+                    </div>
 
-          <input
-            class="input__field"
-            type="text"
-            autocomplete="off"
-            placeholder="위 코드를 따라 입력하세요"
-          />
-        </section>
-      </section>
-    </main>
+                    <input
+                        class="input__field"
+                        type="text"
+                        autocomplete="off"
+                        placeholder="위 코드를 따라 입력하세요"
+                    />
+                </section>
+            </section>
+        </main>
+        <div id="resultModal" class="result-modal hidden">
+            <div class="result-box">
+                <h1>🎉 Congratulations!</h1>
 
-    <script src="JS/game.js"></script>
-  </body>
+                <div class="result-content">
+                    <img
+                        id="resultMonsterImg"
+                        class="result-monster-img"
+                        src=""
+                        alt=""
+                    />
+
+                    <div class="result-info">
+                        <h2 id="resultMonsterName"></h2>
+
+                        <p>
+                            CPM :
+                            <span id="resultCpm"></span>
+                        </p>
+
+                        <p>
+                            ACC :
+                            <span id="resultAccuracy"></span>
+                        </p>
+
+                        <p>
+                            TIME :
+                            <span id="resultTime"></span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="result-errors">
+                    <h3>오타 분석</h3>
+
+                    <p>
+                        특수문자 오타 :
+                        <span id="resultSpecialError">0</span>
+                    </p>
+
+                    <p>
+                        대소문자 오타 :
+                        <span id="resultCaseError">0</span>
+                    </p>
+
+                    <p>
+                        일반 오타 :
+                        <span id="resultNormalError">0</span>
+                    </p>
+                </div>
+
+                <div class="result-buttons">
+                    <button id="homeBtn">홈으로 가기</button>
+
+                    <button id="stageBtn">스테이지 선택</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="JS/game.js"></script>
+    </body>
 </html>
