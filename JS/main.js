@@ -39,9 +39,9 @@ loginBtn.addEventListener("click", (e) => {
   }
 
   // 로그인 O
+  localStorage.setItem("userId");
   localStorage.removeItem("loginUser");
   localStorage.removeItem("selectedLang");
-  localStorage.removeItem("monsterIds");
   localStorage.removeItem("selectedLevel");
   alert("로그아웃 되었습니다.");
   location.reload();
