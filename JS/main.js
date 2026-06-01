@@ -32,6 +32,7 @@ loginBtn.addEventListener("click", (e) => {
   localStorage.removeItem("loginUser");
   localStorage.removeItem("selectedLang");
   localStorage.removeItem("monsterIds");
+  localStorage.removeItem("selectedLevel");
   alert("로그아웃 되었습니다.");
   location.reload();
 });
