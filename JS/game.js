@@ -1,8 +1,11 @@
-// 선택한 몬스터 ID
-const monsterId = localStorage.getItem("selectedLevel");
+// 선택한 레벨
+const level = localStorage.getItem("selectedLevel");
 
 // 선택한 언어
 const selectedLang = localStorage.getItem("selectedLang");
+
+// 선택한 몬스터 ID
+const monsterId = localStorage.getItem("selectedMonsterId");
 
 // 몬스터 조회
 const API = `http://localhost:8080/api/monster/${monsterId}`;
@@ -41,7 +44,7 @@ let errorStats = {
     indentation_error: 0,
     normal_text_error: 0,
 };
-
+setBackgroundImage();
 loadProblem();
 
 // 엔터 입력 시 줄 채점
@@ -67,12 +70,12 @@ document.getElementById("stageBtn").onclick = () => {
 async function loadProblem() {
     try {
         const response = await fetch(API);
-
         const result = await response.json();
 
         currentMonster = result.data;
 
         renderCode(currentMonster);
+        setMonsterImage();
     } catch (err) {
         console.error("몬스터 조회 실패:", err);
     }
@@ -119,6 +122,7 @@ function handleEnter(e) {
     const targetLine = codeLines[currentLineIndex].trimStart();
 
     checkLine(userInput, targetLine);
+    showAttackEffect();
 }
 
 // 현재 줄 채점
@@ -295,4 +299,40 @@ function escapeHtml(text) {
         .replaceAll("&", "&amp;")
         .replaceAll("<", "&lt;")
         .replaceAll(">", "&gt;");
+}
+//난이도에 따른 배경 변환
+function setBackgroundImage() {
+    const backgroundImg = document.getElementById("backgroundImg");
+
+    switch (level) {
+        case "1":
+            backgroundImg.src = "img/forestmap.png";
+            break;
+
+        case "2":
+            backgroundImg.src = "img/mountinmap.png";
+            break;
+
+        case "3":
+            backgroundImg.src = "img/lavamap.png";
+            break;
+    }
+}
+//공격시 이펙트
+function showAttackEffect() {
+    const attack = document.querySelector(".attack");
+
+    attack.classList.add("active");
+
+    setTimeout(() => {
+        attack.classList.remove("active");
+    }, 400);
+}
+
+function setMonsterImage() {
+    const monsterImage = document.getElementById("monsterImage");
+
+    if (!currentMonster) return;
+
+    monsterImage.src = currentMonster.normalImg;
 }
