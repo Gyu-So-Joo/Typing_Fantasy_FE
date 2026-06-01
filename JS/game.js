@@ -1,18 +1,19 @@
 // 선택한 레벨
 const level = localStorage.getItem("selectedLevel");
+//유저 아이디
 
+const userId = localStorage.getItem("userId");
 // 선택한 언어
 const selectedLang = localStorage.getItem("selectedLang");
 
 // 몬스터 조회 API
-const API = "http://localhost:8080/api/monster/list";
+const API = "http://localhost:8080/api/monster";
 
 // DOM 요소
 const inputField = document.querySelector(".input__field");
 
 // 현재 몬스터 정보
 let currentMonster = null;
-let monsterId = null; // ✅ 추가 (선택된 몬스터 ID)
 
 // 코드 라인 목록
 let codeLines = [];
@@ -38,7 +39,6 @@ let timer = 0;
 let errorStats = {
     special_char_error: 0,
     case_mismatch_error: 0,
-    indentation_error: 0,
     normal_text_error: 0,
 };
 
@@ -67,26 +67,24 @@ document.getElementById("stageBtn").onclick = () => {
 // 몬스터 정보 조회 + 랜덤 선택
 async function loadProblem() {
     try {
-        const response = await fetch(API);
-        const result = await response.json();
+        const userId = localStorage.getItem("userId"); // 없으면 null 가능
 
-        const monsters = result.data;
+        const response = await fetch(
+            `${API}/random?userId=${userId}&level=${level}`,
+        );
 
-        // ✔ level 기준 필터
-        const filtered = monsters.filter((m) => m.level == level);
-
-        if (!filtered || filtered.length === 0) {
-            console.error("해당 레벨 몬스터 없음");
-            return;
+        if (!response.ok) {
+            throw new Error("랜덤 몬스터 API 실패");
         }
 
-        // ✔ 랜덤 선택
-        const randomIndex = Math.floor(Math.random() * filtered.length);
-        currentMonster = filtered[randomIndex];
+        const result = await response.json();
 
-        // ✔ ID 확정 및 저장
-        monsterId = currentMonster.id;
-        localStorage.setItem("selectedMonsterId", monsterId);
+        currentMonster = result.data;
+
+        if (!currentMonster) {
+            console.error("몬스터 데이터 없음");
+            return;
+        }
 
         renderCode(currentMonster);
         setMonsterImage();
@@ -185,9 +183,15 @@ function finishGame() {
 
     const elapsedSeconds = Math.floor((Date.now() - gameStartTime) / 1000);
 
-    showResultModal(currentMonster, finalAccuracy, finalCpm, elapsedSeconds);
+    showMonsterExplosion(() => {
+        showResultModal(
+            currentMonster,
+            finalAccuracy,
+            finalCpm,
+            elapsedSeconds,
+        );
+    });
 }
-
 // 타이머
 function updateTimer() {
     timer++;
@@ -346,4 +350,30 @@ function showMonsterHitEffect() {
     setTimeout(() => {
         monster.classList.remove("monster-shake");
     }, 400);
+}
+
+//몬스터 격퇴
+function showMonsterExplosion(callback) {
+    const monster = document.getElementById("monsterImage");
+    const flash = document.getElementById("explosionFlash");
+
+    if (!monster || !flash) return;
+
+    document.body.classList.add("shake-screen");
+
+    flash.classList.add("active");
+
+    monster.classList.add("monster-explode");
+
+    setTimeout(() => {
+        document.body.classList.remove("shake-screen");
+    }, 300);
+
+    setTimeout(() => {
+        flash.classList.remove("active");
+    }, 250);
+
+    setTimeout(() => {
+        if (callback) callback();
+    }, 650);
 }
