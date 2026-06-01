@@ -33,7 +33,7 @@ body {
   font-size: 30px;
   color: #ffffff;
   font-weight: bold;
-
+  min-height: 42px;
   margin-bottom: 25px;
 }
 
