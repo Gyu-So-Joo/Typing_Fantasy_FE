@@ -4,18 +4,15 @@ const level = localStorage.getItem("selectedLevel");
 // 선택한 언어
 const selectedLang = localStorage.getItem("selectedLang");
 
-// 선택한 몬스터 ID
-const monsterId = localStorage.getItem("selectedMonsterId");
-
-// 몬스터 조회
-const API = `http://localhost:8080/api/monster/${monsterId}`;
+// 몬스터 조회 API
+const API = "http://localhost:8080/api/monster/list";
 
 // DOM 요소
-
 const inputField = document.querySelector(".input__field");
 
 // 현재 몬스터 정보
 let currentMonster = null;
+let monsterId = null; // ✅ 추가 (선택된 몬스터 ID)
 
 // 코드 라인 목록
 let codeLines = [];
@@ -44,6 +41,7 @@ let errorStats = {
     indentation_error: 0,
     normal_text_error: 0,
 };
+
 setBackgroundImage();
 loadProblem();
 
@@ -66,13 +64,29 @@ document.getElementById("stageBtn").onclick = () => {
     location.href = "language.html";
 };
 
-// 몬스터 정보 조회
+// 몬스터 정보 조회 + 랜덤 선택
 async function loadProblem() {
     try {
         const response = await fetch(API);
         const result = await response.json();
 
-        currentMonster = result.data;
+        const monsters = result.data;
+
+        // ✔ level 기준 필터
+        const filtered = monsters.filter((m) => m.level == level);
+
+        if (!filtered || filtered.length === 0) {
+            console.error("해당 레벨 몬스터 없음");
+            return;
+        }
+
+        // ✔ 랜덤 선택
+        const randomIndex = Math.floor(Math.random() * filtered.length);
+        currentMonster = filtered[randomIndex];
+
+        // ✔ ID 확정 및 저장
+        monsterId = currentMonster.id;
+        localStorage.setItem("selectedMonsterId", monsterId);
 
         renderCode(currentMonster);
         setMonsterImage();
@@ -81,7 +95,7 @@ async function loadProblem() {
     }
 }
 
-// 몬스터의 코드 데이터를 화면에 세팅
+// 몬스터 코드 세팅
 function renderCode(monster) {
     let code = "";
 
@@ -91,10 +105,8 @@ function renderCode(monster) {
         code = monster.jsCode;
     }
 
-    // DB의 \n 문자열을 실제 줄바꿈으로 변환
     code = code.replaceAll("\\n", "\n");
 
-    // 줄 단위 분리
     codeLines = code.split("\n");
 
     currentLineIndex = 0;
@@ -118,19 +130,16 @@ function handleEnter(e) {
     e.preventDefault();
 
     const userInput = inputField.value.trimStart();
-
     const targetLine = codeLines[currentLineIndex].trimStart();
 
     checkLine(userInput, targetLine);
     showAttackEffect();
 }
 
-// 현재 줄 채점
+// 채점 로직
 function checkLine(userInput, targetLine) {
-    // 첫 입력 시 게임 시작
     if (!gameStartTime) {
         gameStartTime = Date.now();
-
         cpmTimer = setInterval(updateCPM, 1000);
     }
 
@@ -138,7 +147,6 @@ function checkLine(userInput, targetLine) {
 
     for (let i = 0; i < maxLength; i++) {
         const expected = targetLine[i] || "";
-
         const actual = userInput[i] || "";
 
         totalTyped++;
@@ -147,7 +155,6 @@ function checkLine(userInput, targetLine) {
             correctTyped++;
         } else {
             wrongTyped++;
-
             classifyError(expected, actual);
         }
     }
@@ -156,7 +163,6 @@ function checkLine(userInput, targetLine) {
 
     currentLineIndex++;
 
-    // 모든 줄 완료
     if (currentLineIndex >= codeLines.length) {
         finishGame();
         return;
@@ -181,14 +187,13 @@ function finishGame() {
     showResultModal(currentMonster, finalAccuracy, finalCpm, elapsedSeconds);
 }
 
-// 경과 시간 표시
+// 타이머
 function updateTimer() {
     timer++;
-
     document.querySelector(".time").textContent = timer;
 }
 
-// 정확도 계산
+// 정확도
 function updateAccuracy() {
     const accuracyElement = document.querySelector(".accuracy");
 
@@ -198,11 +203,10 @@ function updateAccuracy() {
     }
 
     const accuracy = (correctTyped / totalTyped) * 100;
-
     accuracyElement.textContent = accuracy.toFixed(1) + "%";
 }
 
-// CPM 계산
+// CPM
 function updateCPM() {
     const cpmElement = document.querySelector(".cpm");
 
@@ -217,14 +221,12 @@ function updateCPM() {
     cpmElement.textContent = cpm;
 }
 
-// 현재 줄을 실시간으로 색상 표시
+// 실시간 렌더
 function renderTypingLine() {
     if (currentLineIndex >= codeLines.length) return;
 
     const typingText = document.querySelector(".typing__text");
-
     const targetLine = codeLines[currentLineIndex].trimStart();
-
     const inputValue = inputField.value;
 
     let html = "";
@@ -246,16 +248,12 @@ function renderTypingLine() {
     typingText.innerHTML = `<p>${html}</p>`;
 }
 
-// 게임 결과 모달 출력
+// 결과 모달
 function showResultModal(monster, accuracy, cpm, time) {
     document.getElementById("resultMonsterImg").src = monster.normalImg;
-
     document.getElementById("resultMonsterName").textContent = monster.name;
-
     document.getElementById("resultAccuracy").textContent = accuracy + "%";
-
     document.getElementById("resultCpm").textContent = cpm;
-
     document.getElementById("resultTime").textContent = time + "초";
 
     document.getElementById("resultModal").classList.remove("hidden");
@@ -270,15 +268,13 @@ function showResultModal(monster, accuracy, cpm, time) {
         errorStats.normal_text_error;
 }
 
-// 오타 유형 분류
+// 오타 분류
 function classifyError(expected, actual) {
-    // 특수문자 오타
     if (/[{}()[\];,.<>!?@#$%^&*+=\-_/\\|:'"`~]/.test(expected)) {
         errorStats.special_char_error++;
         return;
     }
 
-    // 대소문자 오타
     if (
         expected &&
         actual &&
@@ -289,18 +285,18 @@ function classifyError(expected, actual) {
         return;
     }
 
-    // 일반 오타
     errorStats.normal_text_error++;
 }
 
-// HTML 태그 이스케이프 처리
+// HTML escape
 function escapeHtml(text) {
     return text
         .replaceAll("&", "&amp;")
         .replaceAll("<", "&lt;")
         .replaceAll(">", "&gt;");
 }
-//난이도에 따른 배경 변환
+
+// 배경
 function setBackgroundImage() {
     const backgroundImg = document.getElementById("backgroundImg");
 
@@ -318,7 +314,8 @@ function setBackgroundImage() {
             break;
     }
 }
-//공격시 이펙트
+
+// 공격 이펙트
 function showAttackEffect() {
     const attack = document.querySelector(".attack");
 
@@ -329,6 +326,7 @@ function showAttackEffect() {
     }, 400);
 }
 
+// 몬스터 이미지
 function setMonsterImage() {
     const monsterImage = document.getElementById("monsterImage");
 
