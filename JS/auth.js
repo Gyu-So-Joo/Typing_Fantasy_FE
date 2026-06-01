@@ -64,13 +64,13 @@ function login() {
     .then((data) => {
       if (data.status === 200) {
         // 응답값 저장
+        const userId = data.data.id;
         const loginUser = data.data.name;
-        const monsterIds = data.data.monsterIds;
         const selectedLang = data.data.selectedLang;
 
         // localStorage 저장
+        localStorage.setItem("userId", userId);
         localStorage.setItem("loginUser", loginUser);
-        localStorage.setItem("monsterIds", monsterIds);
         localStorage.setItem("selectedLang", selectedLang);
 
         showMsg("loginMsg", "로그인 성공!", true);
