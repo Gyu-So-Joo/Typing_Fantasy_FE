@@ -185,9 +185,15 @@ function finishGame() {
 
     const elapsedSeconds = Math.floor((Date.now() - gameStartTime) / 1000);
 
-    showResultModal(currentMonster, finalAccuracy, finalCpm, elapsedSeconds);
+    showMonsterExplosion(() => {
+        showResultModal(
+            currentMonster,
+            finalAccuracy,
+            finalCpm,
+            elapsedSeconds,
+        );
+    });
 }
-
 // 타이머
 function updateTimer() {
     timer++;
@@ -346,4 +352,30 @@ function showMonsterHitEffect() {
     setTimeout(() => {
         monster.classList.remove("monster-shake");
     }, 400);
+}
+
+//몬스터 격퇴
+function showMonsterExplosion(callback) {
+    const monster = document.getElementById("monsterImage");
+    const flash = document.getElementById("explosionFlash");
+
+    if (!monster || !flash) return;
+
+    document.body.classList.add("shake-screen");
+
+    flash.classList.add("active");
+
+    monster.classList.add("monster-explode");
+
+    setTimeout(() => {
+        document.body.classList.remove("shake-screen");
+    }, 300);
+
+    setTimeout(() => {
+        flash.classList.remove("active");
+    }, 250);
+
+    setTimeout(() => {
+        if (callback) callback();
+    }, 650);
 }
