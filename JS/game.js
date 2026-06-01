@@ -134,6 +134,7 @@ function handleEnter(e) {
 
     checkLine(userInput, targetLine);
     showAttackEffect();
+    showMonsterHitEffect();
 }
 
 // 채점 로직
@@ -333,4 +334,16 @@ function setMonsterImage() {
     if (!currentMonster) return;
 
     monsterImage.src = currentMonster.normalImg;
+}
+//몬스터 피격
+function showMonsterHitEffect() {
+    const monster = document.getElementById("monsterImage");
+
+    if (!monster) return;
+
+    monster.classList.add("monster-shake");
+
+    setTimeout(() => {
+        monster.classList.remove("monster-shake");
+    }, 400);
 }
