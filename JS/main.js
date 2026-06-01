@@ -14,7 +14,17 @@ setInterval(typing, 100);
 
 // 게임 시작 버튼 클릭
 function startGame() {
-  location.href = "language.html";
+  // 선택된 언어 조회
+  const selectedLang = localStorage.getItem("selectedLang");
+
+  // 선택 언어가 있으면 바로 맵 페이지
+  if (selectedLang) {
+    location.href = "map.html";
+  }
+  // 없으면 언어 선택 페이지
+  else {
+    location.href = "language.html";
+  }
 }
 
 //로그인 이벤트 리스너
@@ -36,10 +46,3 @@ loginBtn.addEventListener("click", (e) => {
   alert("로그아웃 되었습니다.");
   location.reload();
 });
-
-// 로그인 상태시 이미지 로고 변경 로그인->로그아웃
-const memberId = localStorage.getItem("loginUser");
-
-if (memberId) {
-  document.querySelector(".login-logo").src = "img/logout.png";
-}
