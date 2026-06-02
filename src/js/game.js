@@ -13,6 +13,8 @@ const API = import.meta.env.VITE_API_URL;
 // DOM 요소
 const inputField = document.querySelector(".input__field");
 
+const resultMsg = document.getElementById("resultMsg");
+
 // 현재 몬스터 정보
 let currentMonster = null;
 
@@ -254,6 +256,9 @@ function renderTypingLine() {
 // 결과 모달
 function showResultModal(monster, accuracy, cpm, time) {
   sendResult();
+
+  resultMsg.innerText =
+    accuracy > 80 ? "🎉 Congratulations!" : "😥 Just missed the target!";
   document.getElementById("resultMonsterImg").src = monster.normalImg;
   document.getElementById("resultMonsterName").textContent = monster.name;
   document.getElementById("resultAccuracy").textContent = accuracy + "%";
@@ -378,13 +383,17 @@ function showMonsterExplosion(callback) {
 }
 //결과 송신
 async function sendResult() {
+  const acc = Number((correctTyped / totalTyped).toFixed(2));
+
+  if (acc < 0.8) return;
+
   const resultData = {
     userId: userId,
     userName: userName,
     monsterId: currentMonster.id,
     selectedLang: selectedLang,
     timer: timer,
-    accuracy: Number((correctTyped / totalTyped).toFixed(2)),
+    accuracy: acc,
     cpm: Number(document.querySelector(".cpm").textContent),
     specialCharError: errorStats.special_char_error,
     caseMismatchError: errorStats.case_mismatch_error,
