@@ -1,11 +1,10 @@
 const AUTH_API = import.meta.env.VITE_API_URL;
-const API = `${AUTH_API}/monster/list`;
+const API = `${AUTH_API}/user`;
+const Mon_API = `${AUTH_API}/monster`;
 
 function checkMon() {
     // 로컬 스토리지에서 몬스터 아이디 가져오기
-    const mon = localStorage.getItem("monsterIds");
-    // 문자열 -> 배열 변환
-    const monsterIds = JSON.parse(mon);
+    const monsterIds = mon ? JSON.parse(mon) : [];
     // 모든 몬스터 카드 가져오기
     const cards = document.querySelectorAll(".monster-card");
     cards.forEach((card) => {
@@ -31,23 +30,29 @@ let allMonsters = [];
 //최초 실행
 loadMonsters();
 // 몬스터 조회
-function loadMonsters() {
-    fetch(API)
-        .then((res) => res.json())
+async function loadMonsters() {
+    try {
+        const userId = localStorage.getItem("userId");
 
-        .then((data) => {
-            console.log("몬스터 데이터:", data);
+        // 해금 목록
+        const unlockedResponse = await fetch(`${API}/${userId}/monster-ids`);
 
-            allMonsters = data.data;
+        const unlockedResult = await unlockedResponse.json();
 
-            renderPage(currentPage);
+        localStorage.setItem("monsterIds", JSON.stringify(unlockedResult.data));
 
-            renderPagination();
-        })
+        // 전체 몬스터
+        const monsterResponse = await fetch(`${Mon_API}/list`);
 
-        .catch((err) => {
-            console.error("몬스터 불러오기 실패:", err);
-        });
+        const monsterResult = await monsterResponse.json();
+
+        allMonsters = monsterResult.data;
+
+        renderPage(currentPage);
+        renderPagination();
+    } catch (err) {
+        console.error(err);
+    }
 }
 // 몬스터 카드 생성
 function appendMonsterCards(monsters) {
@@ -83,11 +88,8 @@ function appendMonsterCards(monsters) {
         `;
         card.dataset.id = monster.id;
 
-        // 로컬 스토리지 몬스터 배열
-        const mon = localStorage.getItem("monsterIds");
-
         // 문자열 -> 배열
-        const monsterIds = mon ? JSON.parse(mon) : [];
+        const monsterIds = JSON.parse(localStorage.getItem("monsterIds"));
 
         const monsterId = Number(monster.id);
 
@@ -102,7 +104,7 @@ function appendMonsterCards(monsters) {
             const img = card.querySelector("img");
 
             // 그림자 이미지
-            img.src = "/src/shadow.png";
+            img.src = "/src/assets/shadow.png";
 
             // 이름 변경
             const title = card.querySelector("h3");
@@ -175,7 +177,7 @@ function openModal(monster) {
             </button>
 
             <img
-                src="${monster.image}"
+                src="${monster.normalImg}"
                 alt="${monster.name}"
                 class="modal-img"
             >

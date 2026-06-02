@@ -9,6 +9,7 @@ const errorComment = document.getElementById("errorComment");
 const chart = document.querySelector(".chart");
 const chartInfo = document.querySelector(".chart-info");
 const lan = document.querySelector(".lan");
+const langSelect = document.getElementById("langSelect");
 
 // 선택된 언어 유무에 따른 예외 처리
 function checkLan() {
@@ -133,6 +134,12 @@ function renderAccuracyInfo(data) {
 
   errorComment.textContent = `가장 많이 발생한 오류 : ${selectedError.label}\n${selectedError.comment}`;
 }
+
+// 언어 선택
+langSelect.addEventListener("change", () => {
+  localStorage.setItem("selectedLang", langSelect.value);
+  checkLan();
+});
 
 document.getElementById("userId").textContent = `ID : ${loginUser}`;
 checkLan();
