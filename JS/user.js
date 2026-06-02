@@ -1,5 +1,5 @@
 const loginId = localStorage.getItem("loginUser");
-const API = `http://localhost:8080/api/user/stats/${loginId}`;
+const API = `http://localhost:8080/api/user/${loginId}`;
 
 checkLan();
 
@@ -43,6 +43,14 @@ function loadUserData() {
       console.error("유저 불러오기 실패:", err);
     });
 }
+
+// 언어 선택
+const langSelect = document.getElementById("langSelect");
+
+langSelect.addEventListener("change", () => {
+  localStorage.setItem("selectedLang", langSelect.value);
+  checkLan();
+});
 
 // 차트 생성
 
