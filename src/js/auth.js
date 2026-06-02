@@ -1,5 +1,5 @@
 // 로그인, 회원가입 JS
-const AUTH_API = "http://localhost:8080/api";
+const AUTH_API = import.meta.env.VITE_API_URL;
 
 // 회원가입
 function register() {
@@ -41,8 +41,17 @@ function register() {
     });
 }
 
-// 로그인
-function login() {
+// 메시지 출력
+function showMsg(id, text, ok) {
+  const el = document.getElementById(id);
+
+  el.textContent = text;
+  el.className = "msg " + (ok ? "ok" : "fail");
+}
+
+const loginBtn = document.getElementById("loginBtn");
+
+loginBtn.addEventListener("click", () => {
   const id = document.getElementById("loginId").value.trim();
   const pw = document.getElementById("loginPw").value.trim();
 
@@ -85,12 +94,4 @@ function login() {
     .catch(() => {
       showMsg("loginMsg", "서버 오류", false);
     });
-}
-
-// 메시지 출력
-function showMsg(id, text, ok) {
-  const el = document.getElementById(id);
-
-  el.textContent = text;
-  el.className = "msg " + (ok ? "ok" : "fail");
-}
+});
