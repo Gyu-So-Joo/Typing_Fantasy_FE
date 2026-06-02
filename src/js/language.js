@@ -1,5 +1,4 @@
 // 언어 선택 JS
-const AUTH_API = "http://localhost:8080/api";
 
 // 사용 언어 선택 타이핑 효과
 const content = "사용 언어를 선택하세요";
