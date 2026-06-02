@@ -7,7 +7,7 @@ const userId = localStorage.getItem("userId");
 const selectedLang = localStorage.getItem("selectedLang");
 
 // 몬스터 조회 API
-const API = "http://localhost:8080/api/monster";
+const API = import.meta.env.VITE_API_URL;
 
 // DOM 요소
 const inputField = document.querySelector(".input__field");
@@ -70,7 +70,7 @@ async function loadProblem() {
     const userId = localStorage.getItem("userId"); // 없으면 null 가능
 
     const response = await fetch(
-      `${API}/random?userId=${userId}&level=${level}`,
+      `${API}/monster/random?userId=${userId}&level=${level}`,
     );
 
     if (!response.ok) {
@@ -300,15 +300,15 @@ function setBackgroundImage() {
 
   switch (level) {
     case "1":
-      backgroundImg.src = "img/forestmap.png";
+      backgroundImg.src = "src/assets/forestmap.png";
       break;
 
     case "2":
-      backgroundImg.src = "img/mountinmap.png";
+      backgroundImg.src = "src/assets/mountinmap.png";
       break;
 
     case "3":
-      backgroundImg.src = "img/lavamap.png";
+      backgroundImg.src = "src/assets/lavamap.png";
       break;
   }
 }
