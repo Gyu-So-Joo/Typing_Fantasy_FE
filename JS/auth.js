@@ -1,6 +1,9 @@
 // 로그인, 회원가입 JS
 const AUTH_API = "http://localhost:8080/api";
 
+// import CONFIG from "./config.js";
+// const AUTH_API = CONFIG.API_URL;
+
 // 회원가입
 function register() {
   const id = document.getElementById("regId").value.trim();
@@ -23,7 +26,7 @@ function register() {
     .then((res) => res.json())
     .then((data) => {
       if (data.status === 201) {
-        showMsg("registerMsg", "가입 완료! 로그인 페이지로 이동합니다.", true);
+        // showMsg("registerMsg", "가입 완료! 로그인 페이지로 이동합니다.", true);
 
         setTimeout(() => {
           location.href = "login.html";
@@ -37,7 +40,7 @@ function register() {
       }
     })
     .catch(() => {
-      showMsg("registerMsg", "서버 오류", false);
+      // showMsg("registerMsg", "서버 오류", false);
     });
 }
 
