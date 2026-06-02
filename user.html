@@ -17,67 +17,22 @@
         <a href="rank.html"
           ><img class="ranking-logo" src="src/assets/ranking.png"
         /></a>
-        <a href="login.html"><img class="login-logo" src="src/assets/login.png" /></a>
-        <a href="user.html"><img class="user-logo" src="src/assets/user.png" /></a>
+        <a href="login.html"
+          ><img class="login-logo" src="src/assets/login.png"
+        /></a>
+        <a href="user.html"
+          ><img class="user-logo" src="src/assets/user.png"
+        /></a>
       </nav>
     </header>
 
-        <!-- 컨테이너 영역 -->
-        <div class="container">
-            <!-- 컨테이너 헤더 -->
-            <div class="container-head">
-                <!-- 왼쪽 -->
-                <div class="head-left">
-                    <img src="src/assets/logo.png" alt="로고" class="game-logo" />
-                </div>
-
-                <!-- 가운데 -->
-                <div class="head-center">
-                    <h2>유저 정보</h2>
-                </div>
-
-                <!-- 오른쪽 -->
-                <a href="encyclopedia.html" class="bookmark-btn"></a>
-            </div>
-
-            <!--  컨테이너 컨텐츠 -->
-            <div class="container-contents" id="containerContents">
-                <!-- 유저 정보 -->
-                <div class="user-info" id="userInfo">
-                    <h2>유저 정보</h2>
-                    <div class="userProfile">
-                        <p id="userId">ID :</p>
-                        <img
-                            src="src/assets/mocohero.png"
-                            alt="모코모"
-                            class="user-img"
-                        />
-                        <div class="lan">
-                            <h2>사용언어</h2>
-                            <form action="#">
-                                <select name="language" id="langSelect">
-                                    <option>Java</option>
-                                    <option>JavaScript</option>
-                                </select>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 유저 통계 -->
-
-                <div class="chart">
-                    <h2>내 게임 스타일 통계</h2>
-                    <div class="chart-area">
-                        <canvas id="errorChart"></canvas>
-                    </div>
-                </div>
-                <div class="chart-info">
-                    <p id="accuracyAvg">평균 정확도 : -</p>
-                    <p id="assessment"></p>
-                    <p id="errorComment">가장 많이 발생한 오류:</p>
-                </div>
-            </div>
+    <!-- 컨테이너 영역 -->
+    <div class="container">
+      <!-- 컨테이너 헤더 -->
+      <div class="container-head">
+        <!-- 왼쪽 -->
+        <div class="head-left">
+          <img src="src/assets/logo.png" alt="로고" class="game-logo" />
         </div>
 
         <!-- 가운데 -->
@@ -96,7 +51,7 @@
           <h2>유저 정보</h2>
           <div class="userProfile">
             <p id="userId">ID :</p>
-            <img src="src/assets/mocomo.png" alt="모코모" class="user-img" />
+            <img src="src/assets/mocohero.png" alt="모코모" class="user-img" />
             <div class="lan">
               <h2>사용언어</h2>
               <form action="#">
@@ -127,7 +82,7 @@
 
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="src/js/loginStatus.js"></script>
+    <script type="module" src="src/js/loginStatus.js"></script>
     <script type="module" src="src/js/user.js"></script>
   </body>
 </html>
