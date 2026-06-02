@@ -23,7 +23,7 @@ body {
 
 /* 컨테이너 영역 */
 .container {
-  width: 1200px;
+  width: 1000px;
   margin: 20px auto;
   background: white;
   border-radius: 20px;
