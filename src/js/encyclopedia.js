@@ -177,7 +177,7 @@ function openModal(monster) {
             </button>
 
             <img
-                src="${monster.image}"
+                src="${monster.normalImg}"
                 alt="${monster.name}"
                 class="modal-img"
             >
