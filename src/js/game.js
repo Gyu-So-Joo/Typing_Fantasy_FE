@@ -5,9 +5,10 @@ const level = localStorage.getItem("selectedLevel");
 const userId = localStorage.getItem("userId");
 // 선택한 언어
 const selectedLang = localStorage.getItem("selectedLang");
-
+//유저이름
+const userName = localStorage.getItem("loginUser");
 // 몬스터 조회 API
-const API = "http://localhost:8080/api/monster";
+const API = import.meta.env.VITE_API_URL;
 
 // DOM 요소
 const inputField = document.querySelector(".input__field");
@@ -70,7 +71,7 @@ async function loadProblem() {
         const userId = localStorage.getItem("userId"); // 없으면 null 가능
 
         const response = await fetch(
-            `${API}/random?userId=${userId}&level=${level}`,
+            `${API}/monster/random?userId=${userId}&level=${level}`,
         );
 
         if (!response.ok) {
@@ -255,6 +256,7 @@ function renderTypingLine() {
 
 // 결과 모달
 function showResultModal(monster, accuracy, cpm, time) {
+    sendResult();
     document.getElementById("resultMonsterImg").src = monster.normalImg;
     document.getElementById("resultMonsterName").textContent = monster.name;
     document.getElementById("resultAccuracy").textContent = accuracy + "%";
@@ -307,15 +309,15 @@ function setBackgroundImage() {
 
     switch (level) {
         case "1":
-            backgroundImg.src = "img/forestmap.png";
+            backgroundImg.src = "src/assets/forestmap.png";
             break;
 
         case "2":
-            backgroundImg.src = "img/mountinmap.png";
+            backgroundImg.src = "src/assets/mountinmap.png";
             break;
 
         case "3":
-            backgroundImg.src = "img/lavamap.png";
+            backgroundImg.src = "src/assets/lavamap.png";
             break;
     }
 }
@@ -376,4 +378,36 @@ function showMonsterExplosion(callback) {
     setTimeout(() => {
         if (callback) callback();
     }, 650);
+}
+//결과 송신
+async function sendResult() {
+    const resultData = {
+        userId: userId,
+        userName: userName,
+        monsterId: currentMonster.id,
+        selectedLang: selectedLang,
+        timer: timer,
+        accuracy: Number((correctTyped / totalTyped).toFixed(2)),
+        cpm: Number(document.querySelector(".cpm").textContent),
+        specialCharError: errorStats.special_char_error,
+        caseMismatchError: errorStats.case_mismatch_error,
+        normalTextError: errorStats.normal_text_error,
+        score: 100,
+    };
+
+    const response = await fetch(`${API}/record`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(resultData),
+    });
+
+    if (!response.ok) {
+        throw new Error("결과 저장 실패");
+    }
+
+    const result = await response.json();
+
+    console.log("결과 저장 성공:", result);
 }

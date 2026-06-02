@@ -12,7 +12,7 @@
   width: 1000px;
   height: 600px;
 
-  background-image: url("../img/box_map.png");
+  background-image: url("../assets/box_map.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -31,7 +31,7 @@
   align-items: center;
   gap: 70px;
 
-  margin-top: 60px; /* 방패 때문에 아래로 내림 */
+  margin-top: 60px;
 }
 
 /* 난이도 버튼 영역 */
@@ -43,19 +43,19 @@
   gap: 20px;
 }
 
+/* 난이도 이미지 버튼 */
 .level-btn {
   width: 140px;
   height: 70px;
 
   border: none;
-  border-radius: 14px;
+  background-color: transparent;
 
-  font-size: 20px;
-  font-weight: bold;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
 
-  background: #f8f1e5;
   cursor: pointer;
-
   transition: 0.2s;
 }
 
@@ -64,8 +64,20 @@
 }
 
 .level-btn.active {
-  background: #b6c7aa;
-  color: white;
+  transform: scale(1.08);
+}
+
+/* 버튼 이미지 */
+.easy {
+  background-image: url("../assets/btn_easy.png");
+}
+
+.normal {
+  background-image: url("../assets/btn_normal.png");
+}
+
+.hard {
+  background-image: url("../assets/btn_hard.png");
 }
 
 /* 오른쪽 내용 */
@@ -77,6 +89,10 @@
 .map-content h2 {
   margin-bottom: 20px;
   font-size: 42px;
+  left: -25px;
+  top: 15px;
+  color: white;
+  visibility: hidden;
 }
 
 /* 맵 카드 */
@@ -103,15 +119,16 @@
 .start-btn {
   margin-top: 20px;
 
-  width: 180px;
-  height: 60px;
+  width: 170px;
+  height: 70px;
 
   border: none;
-  border-radius: 12px;
+  background-color: transparent;
 
-  font-size: 22px;
-  font-weight: bold;
+  background-image: url("../assets/btn_start.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
 
-  background: #f8f1e5;
   cursor: pointer;
 }

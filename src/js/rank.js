@@ -1,5 +1,5 @@
 // 백엔드 API 주소
-const API = "http://localhost:8080/api/user";
+const API = import.meta.env.VITE_API_URL;
 let allRank = []; // 전체 랭킹
 
 // 페이지 로드 시 실행
@@ -9,7 +9,7 @@ window.onload = function () {
 
 // 총 점수 랭킹 불러오기
 function loadTotalScore() {
-  fetch(`${API}/rank/list`)
+  fetch(`${API}/user/rank/list`)
     .then((res) => res.json()) // JSON 형태로 변환
     .then((data) => {
       allRank = data.data;

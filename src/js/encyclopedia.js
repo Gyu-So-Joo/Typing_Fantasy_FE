@@ -1,10 +1,11 @@
-const API = "http:localhost:8080/api/monster/list";
+const AUTH_API = import.meta.env.VITE_API_URL;
+const API = `${AUTH_API}/user`;
+const Mon_API = `${AUTH_API}/monster`;
 
 function checkMon() {
   // 로컬 스토리지에서 몬스터 아이디 가져오기
   const mon = localStorage.getItem("monsterIds");
-  // 문자열 -> 배열 변환
-  const monsterIds = JSON.parse(mon);
+  const monsterIds = mon ? JSON.parse(mon) : [];
   // 모든 몬스터 카드 가져오기
   const cards = document.querySelectorAll(".monster-card");
   cards.forEach((card) => {
@@ -15,14 +16,16 @@ function checkMon() {
       const img = card.querySelector("img");
       const difficulty = card.querySelector(".difficulty");
       // 그림자 이미지로 변경
-      img.src = "/img/shadow.png";
+      img.src = "/src/assets/shadow.png";
+      // const img = card.querySelector(".img");
+      // img.style.backgroundImage = "url('/src/assets/shadow.png')";
       const title = card.querySelector("h3");
       title.textContent = "???";
     }
   });
 }
 
-const pageSize = 8;
+const pageSize = 5;
 // 현재 페이지
 let currentPage = 1;
 // 전체 몬스터 저장
@@ -30,23 +33,29 @@ let allMonsters = [];
 //최초 실행
 loadMonsters();
 // 몬스터 조회
-function loadMonsters() {
-  fetch(API)
-    .then((res) => res.json())
+async function loadMonsters() {
+  try {
+    const userId = localStorage.getItem("userId");
 
-    .then((data) => {
-      console.log("몬스터 데이터:", data);
+    // 해금 목록
+    const unlockedResponse = await fetch(`${API}/${userId}/monster-ids`);
 
-      allMonsters = data.data;
+    const unlockedResult = await unlockedResponse.json();
 
-      renderPage(currentPage);
+    localStorage.setItem("monsterIds", JSON.stringify(unlockedResult.data));
 
-      renderPagination();
-    })
+    // 전체 몬스터
+    const monsterResponse = await fetch(`${Mon_API}/list`);
 
-    .catch((err) => {
-      console.error("몬스터 불러오기 실패:", err);
-    });
+    const monsterResult = await monsterResponse.json();
+
+    allMonsters = monsterResult.data;
+
+    renderPage(currentPage);
+    renderPagination();
+  } catch (err) {
+    console.error(err);
+  }
 }
 // 몬스터 카드 생성
 function appendMonsterCards(monsters) {
@@ -56,39 +65,32 @@ function appendMonsterCards(monsters) {
     console.log(monster);
     const card = document.createElement("div");
 
+    // 문자열 -> 배열
+    const monsterIds = JSON.parse(localStorage.getItem("monsterIds"));
+    const monsterId = Number(monster.id);
+
+    console.log(monsterIds.includes(monsterId));
+    const imageUrl = monsterIds.includes(monsterId)
+      ? monster.normalImg
+      : "/src/assets/shadow.png";
+
     card.className = "monster-card";
     card.innerHTML = `
-
             <div class="img-area">
-
                 <img
                     class="img"
                     src="${monster.normalImg}"
                     alt="${monster.name}"
                 >
-
             </div>
-
             <div class="monster-info">
-
                 <div class="difficulty">
                     ${monster.level}
                 </div>
-
                 <h3>${monster.name}</h3>
-
             </div>
-
         `;
     card.dataset.id = monster.id;
-
-    // 로컬 스토리지 몬스터 배열
-    const mon = localStorage.getItem("monsterIds");
-
-    // 문자열 -> 배열
-    const monsterIds = mon ? JSON.parse(mon) : [];
-
-    const monsterId = Number(monster.id);
 
     //해금 몬스터
     if (monsterIds.includes(monsterId)) {
@@ -99,9 +101,8 @@ function appendMonsterCards(monsters) {
       //미해금 몬스터
       // 카드 내부 이미지
       const img = card.querySelector("img");
-
       // 그림자 이미지
-      img.src = "/img/shadow.png";
+      img.src = "/src/assets/shadow.png";
 
       // 이름 변경
       const title = card.querySelector("h3");
@@ -117,6 +118,7 @@ function appendMonsterCards(monsters) {
     grid.appendChild(card);
   });
 }
+
 // 페이지 렌더링
 function renderPage(page) {
   const grid = document.getElementById("wikiGrid");
@@ -174,7 +176,7 @@ function openModal(monster) {
             </button>
 
             <img
-                src="${monster.image}"
+                src="${monster.normalImg}"
                 alt="${monster.name}"
                 class="modal-img"
             >

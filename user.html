@@ -3,26 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <title>유저 정보</title>
-    <link rel="stylesheet" href="CSS/style.css" />
-    <link rel="stylesheet" href="CSS/user.css" />
-    <script src="JS/checkLogin.js"></script>
+    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="src/css/user.css" />
+    <script src="src/js/checkLogin.js"></script>
   </head>
   <body>
     <!-- 헤더 영역 -->
     <header>
       <h1>
-        <a href="main.html"><img class="logo" src="img/logo.png" /></a>
+        <a href="main.html"><img class="logo" src="src/assets/logo.png" /></a>
       </h1>
       <nav>
-        <a href="rank.html">
-          <img class="ranking-logo" src="img/ranking.png" />
-        </a>
-        <a href="login.html">
-          <img class="login-logo" src="img/login.png" />
-        </a>
-        <a href="user.html">
-          <img class="user-logo" src="img/user.png" />
-        </a>
+        <a href="rank.html"
+          ><img class="ranking-logo" src="src/assets/ranking.png"
+        /></a>
+        <a href="login.html"
+          ><img class="login-logo" src="src/assets/login.png"
+        /></a>
+        <a href="user.html"
+          ><img class="user-logo" src="src/assets/user.png"
+        /></a>
       </nav>
     </header>
 
@@ -32,7 +32,7 @@
       <div class="container-head">
         <!-- 왼쪽 -->
         <div class="head-left">
-          <img src="/img/logo.png" alt="로고" class="game-logo" />
+          <img src="src/assets/logo.png" alt="로고" class="game-logo" />
         </div>
 
         <!-- 가운데 -->
@@ -44,21 +44,20 @@
         <a href="encyclopedia.html" class="bookmark-btn"></a>
       </div>
 
-      <!-- 컨테이너 컨텐츠 -->
+      <!--  컨테이너 컨텐츠 -->
       <div class="container-contents" id="containerContents">
         <!-- 유저 정보 -->
         <div class="user-info" id="userInfo">
           <h2>유저 정보</h2>
           <div class="userProfile">
             <p id="userId">ID :</p>
-            <img src="/img/mocohero.png" alt="모코모" class="user-img" />
-
+            <img src="src/assets/mocohero.png" alt="모코모" class="user-img" />
             <div class="lan">
               <h2>사용언어</h2>
               <form action="#">
                 <select name="language" id="langSelect">
-                  <option>Java</option>
-                  <option>JavaScript</option>
+                  <option>JAVA</option>
+                  <option>JS</option>
                 </select>
               </form>
             </div>
@@ -83,7 +82,7 @@
 
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="JS/loginStatus.js"></script>
-    <script type="module" src="JS/user.js"></script>
+    <script type="module" src="src/js/loginStatus.js"></script>
+    <script type="module" src="src/js/user.js"></script>
   </body>
 </html>

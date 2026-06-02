@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Typing Fantasy</title>
 
-    <link rel="stylesheet" href="CSS/map.css" />
-    <link rel="stylesheet" href="CSS/game.css" />
+    <link rel="stylesheet" href="src/css/map.css" />
+    <link rel="stylesheet" href="src/css/game.css" />
   </head>
 
   <body>
@@ -15,9 +15,9 @@
         <section class="map-box">
           <!-- 난이도 선택 -->
           <aside class="map-side">
-            <button class="level-btn" onclick="loadMap(1)">쉬움</button>
-            <button class="level-btn" onclick="loadMap(2)">보통</button>
-            <button class="level-btn" onclick="loadMap(3)">어려움</button>
+            <button class="level-btn easy" onclick="loadMap(1)"></button>
+            <button class="level-btn normal" onclick="loadMap(2)"></button>
+            <button class="level-btn hard" onclick="loadMap(3)"></button>
           </aside>
 
           <!-- 맵 선택 -->
@@ -27,7 +27,7 @@
             <div class="map-card">
               <img
                 id="mapImg"
-                src="img/map_easy.png"
+                src="src/assets/forestmap.png"
                 alt="맵 이미지"
                 class="map-img"
               />
@@ -37,12 +37,12 @@
               </p>
             </div>
 
-            <button class="start-btn" onclick="startGame()">모험 시작</button>
+            <button class="start-btn" onclick="startGame()"></button>
           </section>
         </section>
       </section>
     </main>
 
-    <script src="JS/map.js"></script>
+    <script src="src/js/map.js"></script>
   </body>
 </html>

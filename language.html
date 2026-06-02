@@ -1,29 +1,31 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="CSS/style.css" />
-    <link rel="stylesheet" href="CSS/language.css" />
-    <script src="/JS/checkLogin.js"></script>
-    <title>Typing Fantasy</title>
-  </head>
-  <body>
-    <main class="select-page">
-      <p class="select-text"></p>
-      <div class="language-wrap">
-        <img
-          src="img/card_java.png"
-          class="language"
-          onclick="selectLanguage('JAVA')"
-        />
-        <img
-          src="img/card_js.png"
-          class="language"
-          onclick="selectLanguage('JS')"
-        />
-      </div>
-    </main>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="src/css/style.css" />
+        <link rel="stylesheet" href="src/css/language.css" />
+        <script src="/src/js/checkLogin.js"></script>
+        <title>Typing Fantasy</title>
+    </head>
+    <body>
+        <main class="select-page">
+            <p class="select-text"></p>
+            <div class="language-wrap">
+                <img
+                    src="src/assets/card_java.png"
+                    class="language"
+                    id="javaBtn"
+                    alt="JAVA"
+                />
+                <img
+                    src="src/assets/card_js.png"
+                    class="language"
+                    id="jsBtn"
+                    alt="JS"
+                />
+            </div>
+        </main>
 
-    <script src="JS/language.js"></script>
-  </body>
+        <script type="module" src="src/js/language.js"></script>
+    </body>
 </html>

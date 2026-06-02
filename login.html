@@ -2,15 +2,15 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="CSS/style.css" />
-    <link rel="stylesheet" href="CSS/auth.css" />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="src/css/auth.css" />
     <title>Typing Fantasy</title>
   </head>
   <body>
     <div class="auth-container">
       <div class="auth-wrap">
         <a href="main.html">
-          <img class="auth-logo" src="img/logo.png" />
+          <img class="auth-logo" src="src/assets/logo.png" />
         </a>
 
         <div class="auth-box">
@@ -35,7 +35,7 @@
               />
             </div>
 
-            <button class="btn-login" onclick="login()">로그인</button>
+            <button class="btn-login" id="loginBtn">로그인</button>
           </div>
           <div class="login-divider">
             <p>계정이 없으신가요?</p>
@@ -47,6 +47,6 @@
       </div>
     </div>
 
-    <script src="js/auth.js"></script>
+    <script type="module" src="src/js/login.js"></script>
   </body>
 </html>

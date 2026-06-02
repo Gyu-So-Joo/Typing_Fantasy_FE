@@ -13,7 +13,7 @@
 }
 
 .auth-box {
-  background: rgb(255, 255, 255);
+  background: white;
   border-radius: 12px;
   padding: 40px;
   width: 100%;
@@ -59,7 +59,7 @@
 .btn-login {
   width: 100%;
   padding: 12px;
-  background: #6b4a2b;
+  background: #6f4e37;
   color: white;
   border: none;
   border-radius: 6px;
