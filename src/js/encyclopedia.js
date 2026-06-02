@@ -17,13 +17,15 @@ function checkMon() {
       const difficulty = card.querySelector(".difficulty");
       // 그림자 이미지로 변경
       img.src = "/src/assets/shadow.png";
+      // const img = card.querySelector(".img");
+      // img.style.backgroundImage = "url('/src/assets/shadow.png')";
       const title = card.querySelector("h3");
       title.textContent = "???";
     }
   });
 }
 
-const pageSize = 8;
+const pageSize = 5;
 // 현재 페이지
 let currentPage = 1;
 // 전체 몬스터 저장
@@ -63,36 +65,32 @@ function appendMonsterCards(monsters) {
     console.log(monster);
     const card = document.createElement("div");
 
+    // 문자열 -> 배열
+    const monsterIds = JSON.parse(localStorage.getItem("monsterIds"));
+    const monsterId = Number(monster.id);
+
+    console.log(monsterIds.includes(monsterId));
+    const imageUrl = monsterIds.includes(monsterId)
+      ? monster.normalImg
+      : "/src/assets/shadow.png";
+
     card.className = "monster-card";
     card.innerHTML = `
-
             <div class="img-area">
-
                 <img
                     class="img"
                     src="${monster.normalImg}"
                     alt="${monster.name}"
                 >
-
             </div>
-
             <div class="monster-info">
-
                 <div class="difficulty">
                     ${monster.level}
                 </div>
-
                 <h3>${monster.name}</h3>
-
             </div>
-
         `;
     card.dataset.id = monster.id;
-
-    // 문자열 -> 배열
-    const monsterIds = JSON.parse(localStorage.getItem("monsterIds"));
-
-    const monsterId = Number(monster.id);
 
     //해금 몬스터
     if (monsterIds.includes(monsterId)) {
@@ -103,7 +101,6 @@ function appendMonsterCards(monsters) {
       //미해금 몬스터
       // 카드 내부 이미지
       const img = card.querySelector("img");
-
       // 그림자 이미지
       img.src = "/src/assets/shadow.png";
 
@@ -121,6 +118,7 @@ function appendMonsterCards(monsters) {
     grid.appendChild(card);
   });
 }
+
 // 페이지 렌더링
 function renderPage(page) {
   const grid = document.getElementById("wikiGrid");
