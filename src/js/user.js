@@ -44,6 +44,14 @@ function loadUserData() {
     });
 }
 
+// 언어 선택
+const langSelect = document.getElementById("langSelect");
+
+langSelect.addEventListener("change", () => {
+  localStorage.setItem("selectedLang", langSelect.value);
+  checkLan();
+});
+
 // 차트 생성
 
 function createChart(data) {
