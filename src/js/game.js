@@ -133,6 +133,8 @@ function handleEnter(e) {
   const userInput = inputField.value.trimStart();
   const targetLine = codeLines[currentLineIndex].trimStart();
 
+  if (userInput.length === 0) return;
+
   checkLine(userInput, targetLine);
   showAttackEffect();
   showMonsterHitEffect();
