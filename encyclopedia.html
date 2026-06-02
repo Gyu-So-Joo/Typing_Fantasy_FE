@@ -3,22 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <title>도감</title>
-    <link rel="stylesheet" href="CSS/encyclopedia.css" />
-    <link rel="stylesheet" href="CSS/style.css" />
-    <script src="JS/checkLogin.js"></script>
+    <link rel="stylesheet" href="src/css/encyclopedia.css" />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <script src="src/js/checkLogin.js"></script>
   </head>
   <body>
     <!-- 헤더 영역 -->
     <header>
       <h1>
-        <a href="main.html"><img class="logo" src="img/logo.png" /></a>
+        <a href="main.html"><img class="logo" src="src/assets/logo.png" /></a>
       </h1>
       <nav>
         <a href="rank.html"
-          ><img class="ranking-logo" src="img/ranking.png"
+          ><img class="ranking-logo" src="src/assets/ranking.png"
         /></a>
-        <a href="login.html"><img class="login-logo" src="img/login.png" /></a>
-        <a href="user.html"><img class="user-logo" src="img/user.png" /></a>
+        <a href="login.html"
+          ><img class="login-logo" src="src/assets/login.png"
+        /></a>
+        <a href="user.html"
+          ><img class="user-logo" src="src/assets/user.png"
+        /></a>
       </nav>
     </header>
 
@@ -27,7 +31,7 @@
       <!-- 컨테이너 헤더 -->
       <div class="container-head">
         <div class="head-left">
-          <img src="img/logo.png" alt="로고" class="game-logo" />
+          <img src="src/assets/logo.png" alt="로고" class="game-logo" />
         </div>
         <div class="head-center">
           <h2>도감</h2>
@@ -46,6 +50,6 @@
     <div class="modal-bg hidden" id="wikiModal"></div>
 
     <!-- JS -->
-    <script type="module" src="JS/encyclopedia.js"></script>
+    <script type="module" src="src/js/encyclopedia.js"></script>
   </body>
 </html>
