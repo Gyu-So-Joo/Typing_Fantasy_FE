@@ -1,20 +1,19 @@
 // 맵 선택 JS
-const AUTH_API = "http://localhost:8080/api";
 
 // 맵 레벨 저장
 let selectedLevel = 1;
 
 const mapData = {
   1: {
-    image: "img/forestmap.png",
+    image: "src/assets/forestmap.png",
     detail: "초보 모험가를 모코모 평원입니다.",
   },
   2: {
-    image: "img/mountinmap.png",
+    image: "src/assets/mountinmap.png",
     detail: "중급 모험가를 위한 모코모 마운틴입니다.",
   },
   3: {
-    image: "img/lavamap.png",
+    image: "src/assets/lavamap.png",
     detail: "숙련된 모험가만 들어갈 수 있는 모코모 화산지대입니다.",
   },
 };
