@@ -3,5 +3,5 @@ console.log("loginStatus 실행");
 const memberId = localStorage.getItem("loginUser");
 
 if (memberId) {
-  document.querySelector(".login-logo").src = "img/logout.png";
+  document.querySelector(".login-logo").src = "../assets/logout.png";
 }
