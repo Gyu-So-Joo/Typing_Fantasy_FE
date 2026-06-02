@@ -1,48 +1,56 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Typing Fantasy</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Typing Fantasy</title>
 
-    <link rel="stylesheet" href="src/css/map.css" />
-    <link rel="stylesheet" href="src/css/game.css" />
-  </head>
+        <link rel="stylesheet" href="src/css/map.css" />
+        <link rel="stylesheet" href="src/css/game.css" />
+    </head>
 
-  <body>
-    <main class="map-page">
-      <section class="map-frame">
-        <section class="map-box">
-          <!-- 난이도 선택 -->
-          <aside class="map-side">
-            <button class="level-btn" onclick="loadMap(1)">쉬움</button>
-            <button class="level-btn" onclick="loadMap(2)">보통</button>
-            <button class="level-btn" onclick="loadMap(3)">어려움</button>
-          </aside>
+    <body>
+        <main class="map-page">
+            <section class="map-frame">
+                <section class="map-box">
+                    <!-- 난이도 선택 -->
+                    <aside class="map-side">
+                        <button class="level-btn" onclick="loadMap(1)">
+                            쉬움
+                        </button>
+                        <button class="level-btn" onclick="loadMap(2)">
+                            보통
+                        </button>
+                        <button class="level-btn" onclick="loadMap(3)">
+                            어려움
+                        </button>
+                    </aside>
 
-          <!-- 맵 선택 -->
-          <section class="map-content">
-            <h2>맵을 선택하세요</h2>
+                    <!-- 맵 선택 -->
+                    <section class="map-content">
+                        <h2>맵을 선택하세요</h2>
 
-            <div class="map-card">
-              <img
-                id="mapImg"
-                src="src/assets/map_easy.png"
-                alt="맵 이미지"
-                class="map-img"
-              />
+                        <div class="map-card">
+                            <img
+                                id="mapImg"
+                                src="src/assets/forestmap.png"
+                                alt="맵 이미지"
+                                class="map-img"
+                            />
 
-              <p id="mapDetail" class="map-detail">
-                초보 모험가를 위한 평화로운 숲입니다.
-              </p>
-            </div>
+                            <p id="mapDetail" class="map-detail">
+                                초보 모험가를 위한 평화로운 숲입니다.
+                            </p>
+                        </div>
 
-            <button class="start-btn" onclick="startGame()">모험 시작</button>
-          </section>
-        </section>
-      </section>
-    </main>
+                        <button class="start-btn" onclick="startGame()">
+                            모험 시작
+                        </button>
+                    </section>
+                </section>
+            </section>
+        </main>
 
-    <script src="src/js/map.js"></script>
-  </body>
+        <script src="src/js/map.js"></script>
+    </body>
 </html>

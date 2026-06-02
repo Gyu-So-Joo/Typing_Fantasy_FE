@@ -16,7 +16,7 @@ function checkMon() {
             const img = card.querySelector("img");
             const difficulty = card.querySelector(".difficulty");
             // 그림자 이미지로 변경
-            img.src = "/img/shadow.png";
+            img.src = "/src/shadow.png";
             const title = card.querySelector("h3");
             title.textContent = "???";
         }
@@ -102,7 +102,7 @@ function appendMonsterCards(monsters) {
             const img = card.querySelector("img");
 
             // 그림자 이미지
-            img.src = "/img/shadow.png";
+            img.src = "/src/shadow.png";
 
             // 이름 변경
             const title = card.querySelector("h3");
