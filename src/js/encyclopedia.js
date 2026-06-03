@@ -188,8 +188,8 @@ function openModal(monster) {
                 ${monster.level}
             </p>
 
-            <p>
-                ${monster.detail}
+            <p class="monster-detail">
+              ${monster.detail}
             </p>
 
         </div>
