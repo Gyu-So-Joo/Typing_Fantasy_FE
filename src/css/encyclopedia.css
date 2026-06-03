@@ -20,12 +20,16 @@ body {
 }
 /* 컨테이너 영역 */
 .container {
-  width: 1200px;
-  margin: 50px auto;
-  background: white;
-  border-radius: 20px;
-  padding: 40px;
+  width: auto;
+  background: #fff8ec;
+  border: 6px solid #d6b98c;
+  box-shadow: 0 14px 0 #8b6b3f;
+  border-radius: 26px;
+  padding: 50px;
+  margin-top: 30px;
   box-sizing: border-box;
+  transform: scale(0.7);
+  transform-origin: center;
 }
 /* 그리드 영역 */
 .wiki-grid {
@@ -33,7 +37,7 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 24px;
   padding: 20px 40px;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 /* 카드 */
@@ -41,8 +45,17 @@ body {
   background: var(--basic-color);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
+  text-align: center;
+  border: 2px solid #d6b98c;
+  border-radius: 15px;
 }
+.monster-card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  opacity: 0.7;
+}
+
 /* 페이지 네이션 */
 .pagination {
   display: flex;
@@ -88,6 +101,9 @@ body {
   justify-content: center;
   align-items: center;
   animation: modalOpen 0.3s;
+}
+#monster-name {
+  margin: 10px;
 }
 .close-btn {
   position: absolute;
@@ -155,9 +171,9 @@ body {
   margin-bottom: 40px;
 }
 .img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+  width: auto;
+  height: 150px;
+  object-fit: fill;
 }
 .img-area {
   display: flex;

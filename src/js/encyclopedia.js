@@ -21,6 +21,8 @@ function checkMon() {
       // img.style.backgroundImage = "url('/src/assets/shadow.png')";
       const title = card.querySelector("h3");
       title.textContent = "???";
+
+      card.style.pointerEvents = "none";
     }
   });
 }
@@ -62,12 +64,15 @@ function appendMonsterCards(monsters) {
   const grid = document.getElementById("wikiGrid");
 
   monsters.forEach((monster) => {
-    console.log(monster);
+    //console.log(monster);
     const card = document.createElement("div");
 
     // 문자열 -> 배열
     const monsterIds = JSON.parse(localStorage.getItem("monsterIds"));
     const monsterId = Number(monster.id);
+
+    let monsterStars = "";
+    for (let i = 0; i < monster.level; i++) monsterStars += "⭐️";
 
     console.log(monsterIds.includes(monsterId));
     const imageUrl = monsterIds.includes(monsterId)
@@ -85,7 +90,7 @@ function appendMonsterCards(monsters) {
             </div>
             <div class="monster-info">
                 <div class="difficulty">
-                    ${monster.level}
+                    ${monsterStars}
                 </div>
                 <h3>${monster.name}</h3>
             </div>
@@ -167,6 +172,9 @@ function renderPagination() {
 function openModal(monster) {
   const modal = document.getElementById("wikiModal");
 
+  let monsterStars = "";
+  for (let i = 0; i < monster.level; i++) monsterStars += "⭐️";
+
   modal.innerHTML = `
 
         <div class="modal-box">
@@ -181,12 +189,7 @@ function openModal(monster) {
                 class="modal-img"
             >
 
-            <h2>${monster.name}</h2>
-
-            <p>
-                난이도 :
-                ${monster.level}
-            </p>
+            <h2 id="monsterName">${monsterStars} ${monster.name}</h2>
 
             <p class="monster-detail">
               ${monster.detail}
