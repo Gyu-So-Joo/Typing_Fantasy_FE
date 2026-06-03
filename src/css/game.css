@@ -129,7 +129,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  z-index: 9999;
+  z-index: 50;
 }
 
 .result-box {
@@ -357,7 +357,7 @@ body {
   background: white;
   opacity: 0;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 10;
 }
 
 .explosion-flash.active {
