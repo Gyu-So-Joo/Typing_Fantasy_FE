@@ -41,15 +41,13 @@ loginBtn.addEventListener("click", () => {
         localStorage.setItem("selectedLang", selectedLang);
 
         // showMsg("loginMsg", "로그인 성공!", true);
-
-        setTimeout(() => {
-          location.href = "main.html";
-        }, 1500);
+        location.href = "main.html";
       } else {
         showMsg("loginMsg", "아이디 또는 비밀번호가 틀렸습니다.", false);
       }
     })
-    .catch(() => {
+    .catch((err) => {
+      console.error(err);
       // showMsg("loginMsg", "서버 오류", false);
     });
 });
