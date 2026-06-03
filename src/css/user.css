@@ -46,14 +46,22 @@ body {
 }
 
 .bookmark-btn {
-  width: 50px;
-  height: 50px;
-  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 20px;
+
   border-radius: 12px;
+
   background: #c9aa78;
   color: white;
-  font-size: 22px;
-  cursor: pointer;
+
+  text-decoration: none;
+
+  font-size: 18px;
+  font-weight: 700;
+
   transition: 0.2s;
 }
 
@@ -223,4 +231,8 @@ body {
   font-weight: 700;
   color: #6b4a2b;
   opacity: 1;
+}
+.bookmark-btn::before {
+  content: "→";
+  margin-right: 8px;
 }
