@@ -159,10 +159,8 @@ body {
 }
 
 .result-monster-img {
-  width: 250px;
-  height: 250px;
-
-  object-fit: contain;
+  width: 180px;
+  height: 180px;
 }
 
 .result-info {
@@ -384,4 +382,27 @@ body {
 /* 화면 흔들림 */
 .shake-screen {
   animation: screenShake 0.3s ease;
+}
+
+/* 오타 구역 디자인 */
+.result-errors {
+  margin-top: 20px;
+  padding-top: 20px;
+
+  border-top: 1px solid #ddd;
+}
+.result-info p,
+.result-errors p {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 6px 0;
+}
+
+/* 버튼 css */
+.result-buttons {
+  padding-top: 20px;
+  margin-top: 20px;
+
+  border-top: 1px solid #ddd;
 }
