@@ -1,6 +1,9 @@
 // 로그인 JS
 const AUTH_API = import.meta.env.VITE_API_URL;
 
+const loginBtn = document.getElementById("loginBtn");
+const loginPw = document.getElementById("loginPw");
+
 // 메시지 출력
 function showMsg(id, text, ok) {
   const el = document.getElementById(id);
@@ -10,8 +13,6 @@ function showMsg(id, text, ok) {
 }
 
 // 로그인
-const loginBtn = document.getElementById("loginBtn");
-
 loginBtn.addEventListener("click", () => {
   const id = document.getElementById("loginId").value.trim();
   const pw = document.getElementById("loginPw").value.trim();
@@ -50,4 +51,11 @@ loginBtn.addEventListener("click", () => {
       console.error(err);
       // showMsg("loginMsg", "서버 오류", false);
     });
+});
+
+// 패스워드에서 Enter 키 클릭 시, 로그인 버튼 클릭
+loginPw.addEventListener("keydown", (e) => {
+  if (e.key !== "Enter") return;
+
+  loginBtn.click();
 });

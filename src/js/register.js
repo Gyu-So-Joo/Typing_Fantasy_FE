@@ -1,6 +1,9 @@
 // 회원가입 JS
 const AUTH_API = import.meta.env.VITE_API_URL;
 
+const registerBtn = document.getElementById("registerBtn");
+const regPw = document.getElementById("regPw");
+
 // 메시지 출력
 function showMsg(id, text, ok) {
   const el = document.getElementById(id);
@@ -10,8 +13,6 @@ function showMsg(id, text, ok) {
 }
 
 // 회원가입
-const registerBtn = document.getElementById("registerBtn");
-
 registerBtn.addEventListener("click", () => {
   const id = document.getElementById("regId").value.trim();
   const pw = document.getElementById("regPw").value.trim();
@@ -48,4 +49,11 @@ registerBtn.addEventListener("click", () => {
     .catch(() => {
       showMsg("registerMsg", "서버 오류", false);
     });
+});
+
+// 패스워드에서 Enter 키 클릭 시, 회원가입 버튼 클릭
+regPw.addEventListener("keydown", (e) => {
+  if (e.key !== "Enter") return;
+
+  registerBtn.click();
 });
