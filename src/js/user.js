@@ -10,6 +10,7 @@ const chart = document.querySelector(".chart");
 const chartInfo = document.querySelector(".chart-info");
 const lan = document.querySelector(".lan");
 const langSelect = document.getElementById("langSelect");
+const langBtn = document.getElementById("langBtn");
 
 // 선택된 언어 유무에 따른 예외 처리
 function checkLan() {
@@ -27,7 +28,7 @@ function loadUserData() {
     .then((data) => {
       const userData = data.data;
       createChart(userData);
-      console.log(userData);
+      //console.log(userData);
       renderAccuracyInfo(userData);
     })
     .catch((err) => {
@@ -136,11 +137,28 @@ function renderAccuracyInfo(data) {
 }
 
 // 언어 선택
-langSelect.addEventListener("change", () => {
-  localStorage.setItem("selectedLang", langSelect.value);
-  checkLan();
+langBtn.addEventListener("click", (e) => {
+  const newSelectedLang = langSelect.value;
+
+  // 선택된 언어 변경이 없는 경우, 예외 처리
+  if (newSelectedLang === selectedLang) {
+    return;
+  }
+
+  fetch(`${API}/user/lang`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      id: userId,
+      selectedLang: newSelectedLang,
+    }),
+  }).catch((err) => console.err(err));
+
+  localStorage.setItem("selectedLang", newSelectedLang);
 });
 
 document.getElementById("userId").textContent = `ID : ${loginUser}`;
-checkLan();
+langSelect.value = selectedLang;
 loadUserData();

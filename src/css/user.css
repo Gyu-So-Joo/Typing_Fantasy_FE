@@ -245,3 +245,23 @@ body {
   content: "→";
   margin-right: 8px;
 }
+
+#langBtn {
+  display: flex;
+  justify-self: center;
+  padding: 12px 30px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 12px;
+  background: #c9aa78;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#langBtn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
