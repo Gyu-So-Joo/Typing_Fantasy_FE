@@ -440,7 +440,7 @@ async function sendResult() {
   console.log("결과 저장 성공:", result);
 }
 
-/* 적응형 | 너비가 1000px 미만이면 페이지 사용 불가 처리 */
+// 적응형 | 너비가 1000px 미만이면 페이지 사용 불가 처리
 window.addEventListener("resize", () => {
   if (window.innerWidth < 1000) {
     inputField.disabled = true;
@@ -449,4 +449,9 @@ window.addEventListener("resize", () => {
     inputField.disabled = false;
     inputField.focus();
   }
+});
+
+// 붙여넣기 방지
+document.addEventListener("paste", (e) => {
+  e.preventDefault();
 });
