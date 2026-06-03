@@ -175,6 +175,7 @@ body {
   margin-bottom: 10px;
 
   font-size: 20px;
+  border-bottom: 1px solid lightgray;
 }
 
 .result-buttons {
@@ -196,6 +197,7 @@ body {
   cursor: pointer;
 
   font-size: 18px;
+  font-weight: bold;
 }
 
 .result-modal.hidden {
