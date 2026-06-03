@@ -61,7 +61,7 @@ function createChart(data) {
       maintainAspectRatio: false,
       plugins: {
         legend: {
-          position: "right",
+          position: "bottom",
         },
       },
     },
@@ -132,7 +132,7 @@ function renderAccuracyInfo(data) {
 
   const selectedError = errors[errorKey];
 
-  errorComment.textContent = `가장 많이 발생한 오류 : ${selectedError.label}\n${selectedError.comment}`;
+  errorComment.textContent = `가장 많이 발생한 오류\n${selectedError.label}\n${selectedError.comment}`;
 }
 
 // 언어 선택
