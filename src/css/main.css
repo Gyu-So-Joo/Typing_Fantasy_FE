@@ -12,7 +12,6 @@ body {
   justify-content: center;
   align-items: center;
 
-  min-width: 1300px;
   max-width: 1200px;
 
   margin: 0 auto;
@@ -20,11 +19,8 @@ body {
 
 /* 메인 박스 */
 .main {
-  width: 100%;
-  max-width: 700px;
-
+  align-content: center;
   text-align: center;
-
   transform: translateY(-20px);
 }
 
