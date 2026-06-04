@@ -12,10 +12,9 @@
   |---|---|---|
   |<img width="100" height="100" alt="김우주" src="https://github.com/kimspace00.png" />|<img width="100" height="100" alt="소윤서" src="https://github.com/HITS-SO.png" />|<img width="100" height="100" alt="이규태" src="https://github.com/Ourumo.png" />|
   |[@kimspace00](https://github.com/kimspace00)|[@HITS-SO](https://github.com/HITS-SO)|[@Ourumo](https://github.com/Ourumo)|
-- **기획 배경**:
-  - 일반적인 영문 타자와 달리 코딩은 특수문자와 대소문자 사용 빈도가 높아, 예비 개발자들이 문법과 코드 구조에 익숙해지는 데 어려움을 겪습니다.
-  - 본 프로젝트는 JAVA, JavaScript(JS)의 실전 코드를 활용한 게임형 연습을 통해 프로그래밍 언어에 자연스럽게 익숙해질 수 있도록 기획되었습니다.
-  - 또한 특수문자, 대소문자 등의 오타를 분석하여 제공함으로써 사용자가 자신의 취약점을 파악하고 개선할 수 있는 학습 환경을 제공합니다.
+  |프론트 엔드|프론트 엔드|백 엔드|
+
+  <img height="300" alt="image" src="https://github.com/user-attachments/assets/2d425411-f99e-425f-9666-3ef545a50950" />
 
 ---
 
@@ -37,6 +36,12 @@
 > ![Oracle](https://img.shields.io/badge/Oracle_Cloud-%23F80000.svg?style=for-the-badge&logo=oracle&logoColor=white)
 > - **Oracle Compute Instance (OCI)**
 > - **Oracle Object Storage**
+
+---
+
+## 🔁 서비스 흐름도
+<img height="450" alt="image" src="https://github.com/user-attachments/assets/679c3608-f78c-46e9-adb2-3e6eafe0938f" />
+
 
 ---
 
@@ -76,9 +81,16 @@
 
 ---
 
-## 🧠 트러블슈팅 및 회고
+## 🧠 회고 및 개선사항
+<img height="450" alt="image" src="https://github.com/user-attachments/assets/6ec73d36-b628-4c27-83c0-964caec1c46a" />
+
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/86c0d1b8-b1b1-403f-b112-26388baca34e" />
+
+
+
 
 ---
 ## ✅ 참조
 > - [타이핑 판타지 FE](https://github.com/Gyu-So-Joo/Typing_Fantasy_FE)
 > - [타이핑 판타지 BE](https://github.com/Gyu-So-Joo/Typing_Fantasy_BE)
+> - [노션 페이지](https://app.notion.com/p/Typing-Fantasy-cc3407830760838aabb6017c4769b834)
