@@ -1,0 +1,135 @@
+.rank-container {
+  height: calc(100vh - 140px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0 20px;
+}
+
+/* 전체 박스 */
+.rank-box {
+  width: 100%;
+  max-width: 760px;
+
+  padding: 36px 42px;
+
+  background: #fff8ec;
+  border: 4px solid #d6b98c;
+  border-radius: 26px;
+
+  box-shadow: 0 10px 0 #8b6b3f;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* 제목 */
+.rank-header {
+  text-align: center;
+  padding-bottom: 22px;
+  margin-bottom: 24px;
+
+  border-bottom: 3px dashed #c9aa78;
+}
+
+.rank-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #6b4a2b;
+}
+
+/* 테이블 영역 */
+.rank-table {
+  width: 100%;
+}
+
+/* 컬럼 제목 */
+.rank-table-head {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1.5fr;
+
+  text-align: center;
+  align-items: center;
+
+  margin-bottom: 12px;
+  padding-right: 14px; /* 스크롤바 공간 */
+
+  font-size: 15px;
+  font-weight: bold;
+  color: #7f6b4f;
+}
+
+/* 리스트 박스 */
+.rank-list {
+  max-height: 360px;
+  overflow-y: auto;
+
+  background: #ffffff;
+  border: 3px solid #ead7b7;
+  border-radius: 18px;
+}
+
+/* 스크롤바 */
+.rank-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.rank-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.rank-list::-webkit-scrollbar-thumb {
+  background: #c9aa78;
+  border-radius: 10px;
+}
+
+/* 랭킹 한 줄 */
+.rank-item {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1.5fr;
+
+  text-align: center;
+  align-items: center;
+
+  min-height: 72px;
+  padding: 0 14px;
+
+  font-size: 16px;
+  font-weight: 600;
+  color: #5f4429;
+
+  border-bottom: 2px solid #f1e4cf;
+}
+
+.rank-item:last-child {
+  border-bottom: none;
+}
+
+/* 순위 */
+.rank-item span:first-child {
+  font-weight: bold;
+  color: #8a5a24;
+}
+
+/* 점수 */
+.rank-item span:last-child {
+  font-weight: bold;
+  color: #4f6f32;
+}
+
+/* 내 랭킹 강조 */
+.my-rank {
+  background: #e7f0d2;
+}
+
+/* 로딩 문구 */
+.rank-sentinel {
+  padding: 20px;
+  text-align: center;
+
+  font-size: 14px;
+  font-weight: bold;
+  color: #8b7658;
+}

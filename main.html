@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="src/css/main.css" />
+    <title>Typing Fantasy</title>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href="main.html"><img class="logo" src="src/assets/logo.png" /></a>
+      </h1>
+      <nav>
+        <a href="rank.html"
+          ><img class="ranking-logo" src="src/assets/ranking.png"
+        /></a>
+        <a href="#" id="loginBtn">
+          <img class="login-logo" src="src/assets/login.png" />
+        </a>
+        <a href="user.html"
+          ><img class="user-logo" src="src/assets/user.png"
+        /></a>
+      </nav>
+    </header>
+    <main class="main-page">
+      <section class="main">
+        <div class="main-text">
+          <img class="main-logo" src="src/assets/main_logo.png" />
+          <p class="text"></p>
+        </div>
+        <img
+          src="src/assets/start.png"
+          class="start-btn"
+          onclick="startGame()"
+        />
+      </section>
+    </main>
+    <div id="exception-view"></div>
+    <footer class="footer">
+      <p>© 2026 Typing Fantasy</p>
+    </footer>
+
+    <script type="module" src="src/js/loginStatus.js"></script>
+    <script src="src/js/main.js"></script>
+  </body>
+</html>

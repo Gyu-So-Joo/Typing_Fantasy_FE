@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="src/css/rank.css" />
+
+    <title>Typing Fantasy</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <a href="main.html"><img class="logo" src="src/assets/logo.png" /></a>
+      </h1>
+      <nav>
+        <a href="rank.html"
+          ><img class="ranking-logo" src="src/assets/ranking.png"
+        /></a>
+        <a href="#" id="loginBtn"
+          ><img class="login-logo" src="src/assets/login.png"
+        /></a>
+        <a href="user.html"
+          ><img class="user-logo" src="src/assets/user.png"
+        /></a>
+      </nav>
+    </header>
+
+    <div class="rank-container">
+      <div class="rank-box">
+        <!-- 제목 -->
+        <div class="rank-header">
+          <h2 class="rank-title">Rank</h2>
+        </div>
+
+        <!-- 랭킹 표 -->
+        <div class="rank-table">
+          <div class="rank-table-head">
+            <span>RANK</span>
+            <span>NAME</span>
+            <span>SCORE</span>
+          </div>
+
+          <!-- 랭킹 목록 -->
+          <div id="rankList" class="rank-list">
+            <div id="rankSentinel" class="rank-sentinel">loading...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="exception-view"></div>
+
+    <script type="module" src="src/js/loginStatus.js"></script>
+    <script type="module" src="src/js/rank.js"></script>
+  </body>
+</html>

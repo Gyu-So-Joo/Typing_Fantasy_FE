@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-image: url("../assets/background_2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow-y: hidden;
+}
+
+header {
+  height: 140px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 210px;
+}
+
+/* 랭킹, 로그인, 유저 */
+.ranking-logo,
+.login-logo,
+.user-logo {
+  width: 100px;
+}
+
+footer {
+  height: 50px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+}
+
+#exception-view {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  background-color: rgba(220, 220, 220, 0.7);
+}
+
+/* 적응형 | 너비가 1000px 미만이면 페이지 사용 불가 처리 */
+@media (max-width: 1000px) {
+  #exception-view {
+    opacity: 1;
+    visibility: visible;
+  }
+}

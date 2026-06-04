@@ -1,0 +1,134 @@
+.map-page {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 프레임 이미지 */
+.map-frame {
+  width: 1000px;
+  height: 600px;
+
+  background-image: url("../assets/box_map.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 실제 내용 영역 */
+.map-box {
+  width: 760px;
+  height: 360px;
+
+  display: flex;
+  align-items: center;
+  gap: 70px;
+
+  margin-top: 60px;
+}
+
+/* 난이도 버튼 영역 */
+.map-side {
+  width: 140px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 난이도 이미지 버튼 */
+.level-btn {
+  width: 140px;
+  height: 70px;
+
+  border: none;
+  background-color: transparent;
+
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.level-btn:hover {
+  transform: scale(1.05);
+}
+
+.level-btn.active {
+  transform: scale(1.08);
+}
+
+/* 버튼 이미지 */
+.easy {
+  background-image: url("../assets/btn_easy.png");
+}
+
+.normal {
+  background-image: url("../assets/btn_normal.png");
+}
+
+.hard {
+  background-image: url("../assets/btn_hard.png");
+}
+
+/* 오른쪽 내용 */
+.map-content {
+  width: 500px;
+  text-align: center;
+}
+
+.map-content h2 {
+  margin-bottom: 20px;
+  font-size: 42px;
+  left: -25px;
+  top: 15px;
+  color: white;
+  visibility: hidden;
+}
+
+/* 맵 카드 */
+.map-card {
+  width: 500px;
+
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.map-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.map-detail {
+  padding: 15px;
+  font-size: 18px;
+}
+
+/* 시작 버튼 */
+.start-btn {
+  margin-top: 20px;
+
+  width: 170px;
+  height: 70px;
+
+  border: none;
+  background-color: transparent;
+
+  background-image: url("../assets/btn_start.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  cursor: pointer;
+}

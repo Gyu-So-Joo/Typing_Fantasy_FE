@@ -1,0 +1,193 @@
+/* 전체 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* 루트 색 지정 */
+:root {
+  --point-color: #b6c7aa;
+  --basic-color: #f6e6cb;
+}
+/* 바디 영역 */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-image: url("../assets/background_2.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+/* 컨테이너 영역 */
+.container {
+  width: auto;
+  background: #fff8ec;
+  border: 6px solid #d6b98c;
+  box-shadow: 0 14px 0 #8b6b3f;
+  border-radius: 26px;
+  padding: 50px;
+  margin-top: 30px;
+  box-sizing: border-box;
+  transform: scale(0.7);
+  transform-origin: center;
+}
+/* 그리드 영역 */
+.wiki-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+  padding: 20px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* 카드 */
+.monster-card {
+  background: var(--basic-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
+  border: 2px solid #d6b98c;
+  border-radius: 15px;
+}
+.monster-card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  opacity: 0.7;
+}
+
+/* 페이지 네이션 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.pagination button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: #222;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.pagination button:hover {
+  background-color: #555;
+}
+/* 모달 영역 */
+.hidden {
+  display: none !important;
+}
+.modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-box {
+  width: auto;
+  height: auto;
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: modalOpen 0.3s;
+}
+#monster-name {
+  margin: 10px;
+}
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+.modal-img {
+  width: 250px;
+  max-width: 100%;
+  height: auto;
+
+  object-fit: contain;
+}
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* 컨테이너 헤더 영역 */
+.game-logo {
+  width: 200px;
+  height: auto;
+}
+.container-head h2 {
+  font-size: 32px;
+  color: #333;
+  letter-spacing: 4px;
+}
+.bookmark-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 20px;
+
+  border-radius: 12px;
+
+  background: #c9aa78;
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  transition: 0.2s;
+}
+.bookmark-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+.container-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.img {
+  width: auto;
+  height: 150px;
+  object-fit: fill;
+}
+.img-area {
+  display: flex;
+  justify-content: center;
+}
+.monster-detail {
+  margin-top: 15px;
+
+  width: 300px;
+  max-width: 100%;
+
+  line-height: 1.7;
+  text-align: center;
+
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}

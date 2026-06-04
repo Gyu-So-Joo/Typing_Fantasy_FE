@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typing Fantasy</title>
+
+    <link rel="stylesheet" href="src/css/map.css" />
+    <link rel="stylesheet" href="src/css/game.css" />
+  </head>
+
+  <body>
+    <main class="map-page">
+      <section class="map-frame">
+        <section class="map-box">
+          <!-- 난이도 선택 -->
+          <aside class="map-side">
+            <button class="level-btn easy" onclick="loadMap(1)"></button>
+            <button class="level-btn normal" onclick="loadMap(2)"></button>
+            <button class="level-btn hard" onclick="loadMap(3)"></button>
+          </aside>
+
+          <!-- 맵 선택 -->
+          <section class="map-content">
+            <h2>맵을 선택하세요</h2>
+
+            <div class="map-card">
+              <img
+                id="mapImg"
+                src="src/assets/forestmap.png"
+                alt="맵 이미지"
+                class="map-img"
+              />
+
+              <p id="mapDetail" class="map-detail">
+                초보 모험가를 위한 평화로운 숲입니다.
+              </p>
+            </div>
+
+            <button class="start-btn" onclick="startGame()"></button>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <div id="exception-view"></div>
+
+    <script src="src/js/map.js"></script>
+  </body>
+</html>
